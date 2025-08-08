@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://isiperu.com
+
+# Sitemaps
+Sitemap: https://isiperu.com/sitemap.xml

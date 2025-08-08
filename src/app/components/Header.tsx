@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -14,10 +16,32 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-lg border-b border-gray-200/50"
+          : "bg-white shadow-lg"
+      }`}
+    >
       {/* Top Bar - Información de contacto */}
-      <div className="bg-slate-800 text-white py-2 hidden lg:block">
+      <div
+        className={`bg-[#231F20] text-white py-2 hidden lg:block transition-all duration-300 ${
+          isScrolled
+            ? "max-h-0 overflow-hidden opacity-0"
+            : "max-h-8 opacity-100"
+        }`}
+      >
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-6">
@@ -64,23 +88,43 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <div className="container mx-auto px-4 py-4">
+      <div
+        className={`container mx-auto px-4 transition-all duration-300 ${
+          isScrolled ? "py-2" : "py-4"
+        }`}
+      >
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="bg-[#20B266] p-2 rounded-lg group-hover:bg-green-600 transition-colors">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                </svg>
+              <div
+                className={`relative flex items-center justify-center transition-all duration-300 ${
+                  isScrolled ? "w-[40px] h-[40px]" : "w-[48px] h-[48px]"
+                }`}
+              >
+                <Image
+                  src="/logo.png"
+                  alt="ISI Perú"
+                  width={20}
+                  height={20}
+                  className="object-contain w-full h-full"
+                />
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-800">ISI Perú</h1>
-                <p className="text-sm text-gray-600 -mt-1">Inmobiliaria</p>
+              <div className="flex flex-col justify-center">
+                <h1
+                  className={`font-bold text-gray-800 transition-all duration-300 ${
+                    isScrolled ? "text-xl" : "text-2xl"
+                  }`}
+                >
+                  ISI Perú
+                </h1>
+                <p
+                  className={`text-gray-600 -mt-1 transition-all duration-300 ${
+                    isScrolled ? "text-xs" : "text-sm"
+                  }`}
+                >
+                  Integracion Social Inmobiliaria
+                </p>
               </div>
             </Link>
           </div>

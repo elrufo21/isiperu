@@ -3,7 +3,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Clock,
   Facebook,
   Instagram,
   Linkedin,
@@ -12,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white mt-20">
+    <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -34,9 +33,9 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Tu socio confiable en bienes raíces. Más de 10 años ayudando a
-              familias a encontrar su hogar ideal y a inversionistas a hacer
-              crecer su patrimonio.
+              Integración Social Inmobiliaria (ISI) Perú integra a personas
+              naturales y jurídicas en el sector inmobiliario. Más de 14 años
+              liderando habilitaciones urbanas en la Selva Central.
             </p>
             <div className="flex space-x-3">
               <a
@@ -117,43 +116,33 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Servicios</h4>
+            <h4 className="text-lg font-semibold text-white">
+              Áreas de Trabajo
+            </h4>
             <nav className="flex flex-col space-y-2">
               <Link
-                href="/servicios/venta"
+                href="#areas/ventas"
                 className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
-                Venta de Propiedades
+                Ventas y Servicios
               </Link>
               <Link
-                href="/servicios/alquiler"
+                href="#areas/consolidacion"
                 className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
-                Alquiler de Propiedades
+                Consolidación Empresarial
               </Link>
               <Link
-                href="/servicios/asesoria"
+                href="#areas/marketing"
                 className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
-                Asesoría Inmobiliaria
+                Marketing
               </Link>
               <Link
-                href="/servicios/valuacion"
+                href="#areas/asesoria-legal"
                 className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
-                Valuación de Propiedades
-              </Link>
-              <Link
-                href="/servicios/inversion"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Asesoría en Inversiones
-              </Link>
-              <Link
-                href="/servicios/administracion"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Administración de Propiedades
+                Asesoría Legal y Saneamiento de Predios
               </Link>
             </nav>
           </div>
@@ -168,66 +157,34 @@ const Footer = () => {
                   className="text-[#20B266] mt-0.5 flex-shrink-0"
                 />
                 <div className="text-sm text-gray-400">
-                  <p>Av. Javier Prado Este 1234</p>
-                  <p>San Isidro, Lima 15036</p>
-                  <p>Perú</p>
+                  <p>Calle 3 de Noviembre s/n - Pangoa</p>
+                  <p>Av. Victor Andrés Bélaunde 420 - Mazamari</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Phone size={18} className="text-[#20B266] flex-shrink-0" />
                 <div className="text-sm text-gray-400">
-                  <p>+51 999 123 456</p>
-                  <p>+51 1 234 5678</p>
+                  <p>900460040</p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-3">
                 <Mail size={18} className="text-[#20B266] flex-shrink-0" />
                 <div className="text-sm text-gray-400">
-                  <p>info@isiperu.com</p>
-                  <p>ventas@isiperu.com</p>
+                  <p>isiperu25@gmail.com</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
-                <Clock
+                <Facebook
                   size={18}
                   className="text-[#20B266] mt-0.5 flex-shrink-0"
                 />
                 <div className="text-sm text-gray-400">
-                  <p>Lun - Vie: 9:00 AM - 7:00 PM</p>
-                  <p>Sáb: 9:00 AM - 5:00 PM</p>
-                  <p>Dom: Cita previa</p>
+                  <p>Redes Sociales: ISI PERU</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Newsletter Section */}
-      <div className="bg-gray-800 border-t border-gray-700">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <div className="text-center md:text-left">
-              <h5 className="text-lg font-semibold text-white mb-2">
-                Mantente Informado
-              </h5>
-              <p className="text-gray-400 text-sm">
-                Recibe las mejores oportunidades inmobiliarias directamente en
-                tu email
-              </p>
-            </div>
-            <div className="flex w-full md:w-auto max-w-md">
-              <input
-                type="email"
-                placeholder="Tu email"
-                className="flex-1 px-4 py-2 rounded-l-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#20B266] focus:bg-gray-600"
-              />
-              <button className="bg-[#20B266] text-white px-6 py-2 rounded-r-lg hover:bg-green-600 transition-colors duration-200 font-medium">
-                Suscribir
-              </button>
             </div>
           </div>
         </div>
