@@ -50,17 +50,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/propiedades",
-      "destination": "/"
-    },
-    {
-      "source": "/contacto",
-      "destination": "/"
-    },
-    {
-      "source": "/nosotros",
-      "destination": "/"
-    }
+    
   ]
 } 

@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import GoogleAnalytics from "./components/GoogleAnalytics";
+import JsonLd from "./components/JsonLd";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,14 +36,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    icon: [{ url: "/favicon.ico" }],
   },
   manifest: "/site.webmanifest",
   openGraph: {
@@ -54,7 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "ISI Perú - Inmobiliaria en Perú",
@@ -65,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ISI Perú - Inmobiliaria en Perú",
     description: "Encuentra tu hogar ideal en Perú con ISI Perú",
-    images: ["/twitter-image.jpg"],
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
@@ -79,8 +74,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google:
-      "google-site-verification=Z-fQabJphFvmm3Axqu1pUpmQ_JjsJyssICfZIvtj_1o	",
+    google: "Z-fQabJphFvmm3Axqu1pUpmQ_JjsJyssICfZIvtj_1o",
   },
 };
 
@@ -95,9 +89,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GoogleAnalytics />
+        <JsonLd />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

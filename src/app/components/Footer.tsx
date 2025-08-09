@@ -198,26 +198,6 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} ISI Perú Inmobiliaria. Todos los
               derechos reservados.
             </p>
-            <div className="flex items-center space-x-6 text-sm">
-              <Link
-                href="/privacidad"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200"
-              >
-                Política de Privacidad
-              </Link>
-              <Link
-                href="/terminos"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200"
-              >
-                Términos de Uso
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200"
-              >
-                Cookies
-              </Link>
-            </div>
           </div>
         </div>
       </div>

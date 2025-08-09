@@ -19,7 +19,6 @@ import {
   Heart,
   Eye,
   Share2,
-  Calendar,
   DollarSign,
   UserCheck,
   Target,
@@ -126,6 +125,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Pangoa, Junín",
       estado: "Completado",
       tipo: "Habilitación Urbana",
+      imagen: "/espDeVida.jpg",
       caracteristicas: [
         "Habilitación completa",
         "Titulación finalizada",
@@ -133,8 +133,6 @@ export default function ISIPeruHomepage() {
         "Áreas verdes",
       ],
       destacado: true,
-      añoComplecion: "2018",
-      lotes: "120+ lotes",
     },
     {
       id: "2",
@@ -142,6 +140,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Mazamari, Junín",
       estado: "Completado",
       tipo: "Urbanización",
+      imagen: "/valleSagrado.jpg",
       caracteristicas: [
         "Diseño moderno",
         "Infraestructura completa",
@@ -149,8 +148,6 @@ export default function ISIPeruHomepage() {
         "Acceso pavimentado",
       ],
       destacado: false,
-      añoComplecion: "2019",
-      lotes: "80+ lotes",
     },
     {
       id: "3",
@@ -158,6 +155,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Mazamari, Junín",
       estado: "Completado",
       tipo: "Proyecto Residencial",
+      imagen: "/villaFlavia.jpg",
       caracteristicas: [
         "Zona privilegiada",
         "Seguridad 24/7",
@@ -165,8 +163,6 @@ export default function ISIPeruHomepage() {
         "Cercanía a servicios",
       ],
       destacado: false,
-      añoComplecion: "2020",
-      lotes: "60+ lotes",
     },
     {
       id: "4",
@@ -174,6 +170,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Pangoa, Junín",
       estado: "Completado",
       tipo: "Habilitación Urbana",
+      imagen: "/espDeVida.jpg",
       caracteristicas: [
         "Expansión del proyecto original",
         "Titulación avanzada",
@@ -181,8 +178,6 @@ export default function ISIPeruHomepage() {
         "Áreas comunes",
       ],
       destacado: false,
-      añoComplecion: "2021",
-      lotes: "90+ lotes",
     },
     {
       id: "5",
@@ -190,6 +185,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Mazamari, Junín",
       estado: "Completado",
       tipo: "Urbanización Residencial",
+      imagen: "/laMolina.webp",
       caracteristicas: [
         "Zona exclusiva",
         "Seguridad privada",
@@ -197,8 +193,6 @@ export default function ISIPeruHomepage() {
         "Acceso controlado",
       ],
       destacado: false,
-      añoComplecion: "2022",
-      lotes: "70+ lotes",
     },
     {
       id: "6",
@@ -206,6 +200,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Pangoa, Junín",
       estado: "Completado",
       tipo: "Proyecto Sostenible",
+      imagen: "/ecovida.jpg",
       caracteristicas: [
         "Enfoque ecológico",
         "Energía renovable",
@@ -213,14 +208,34 @@ export default function ISIPeruHomepage() {
         "Comunidad sostenible",
       ],
       destacado: false,
-      añoComplecion: "2023",
-      lotes: "50+ lotes",
     },
   ];
 
-  // Carousel logic
-  const slidesPerView = 3;
+  // Carousel logic (responsive)
+  const [slidesPerView, setSlidesPerView] = useState(3);
   const totalSlides = Math.ceil(proyectosCompletados.length / slidesPerView);
+
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth < 640) {
+        setSlidesPerView(1); // sm-
+      } else if (viewportWidth < 1024) {
+        setSlidesPerView(2); // md
+      } else {
+        setSlidesPerView(3); // lg+
+      }
+    };
+
+    updateSlidesPerView();
+    window.addEventListener("resize", updateSlidesPerView);
+    return () => window.removeEventListener("resize", updateSlidesPerView);
+  }, []);
+
+  useEffect(() => {
+    // Evita quedar fuera de rango cuando cambia el número de tarjetas por vista
+    setCurrentSlide(0);
+  }, [slidesPerView]);
 
   const handleNextSlide = () => {
     setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
@@ -368,10 +383,10 @@ export default function ISIPeruHomepage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
-      <section className="relative min-h-[800px] bg-gradient-to-br from-[#231F20] via-[#2a2529] to-[#1a1718] overflow-hidden">
+      <section className="relative min-h-[800px] bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 overflow-hidden ">
         {/* Elegant Gradient Background */}
-        <div className="absolute inset-0 min-h-[800px] bg-gradient-to-br from-[#231F20] via-[#2a2529] to-[#1a1718]">
-          <div className="absolute inset-0 bg-gradient-to-r from-[#231F20]/95 via-[#2a2529]/85 to-[#231F20]/90"></div>
+        <div className="absolute inset-0 min-h-[800px] bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
+          <div className="absolute inset-0  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1718]/80 via-transparent to-[#2a2529]/30"></div>
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/5 via-transparent to-emerald-800/3"></div>
           <div
@@ -443,13 +458,16 @@ export default function ISIPeruHomepage() {
 
             {/* Hero Image */}
             <div className="relative">
-              <div className="relative h-[420px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
                 <Image
-                  src="/logo.png"
+                  src="/hero.png"
                   alt="ISI Perú"
-                  fill
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   priority
-                  className="object-contain"
+                  className="object-contain w-full h-auto"
+                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
             </div>
@@ -457,7 +475,7 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Services Section */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-16 bg-white bg-green-diagonal relative overflow-hidden">
         {/* Textura ligera tipo plano (rejilla) */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
@@ -518,7 +536,7 @@ export default function ISIPeruHomepage() {
       {/* Projects Section */}
       <section
         id="proyectos"
-        className="py-16 bg-gradient-to-br from-[#231F20] via-[#2a2529] to-[#1a1718] text-white relative overflow-hidden"
+        className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden"
       >
         {/* Background overlay for better readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#231F20]/90 via-transparent to-[#231F20]/90"></div>
@@ -577,7 +595,15 @@ export default function ISIPeruHomepage() {
               >
                 {Array.from({ length: totalSlides }, (_, slideIndex) => (
                   <div key={slideIndex} className="w-full flex-shrink-0 px-4">
-                    <div className="grid grid-cols-3 gap-4 md:gap-6">
+                    <div
+                      className={`grid gap-4 md:gap-6 ${
+                        slidesPerView === 1
+                          ? "grid-cols-1"
+                          : slidesPerView === 2
+                          ? "grid-cols-2"
+                          : "grid-cols-3"
+                      }`}
+                    >
                       {proyectosCompletados
                         .slice(
                           slideIndex * slidesPerView,
@@ -589,33 +615,29 @@ export default function ISIPeruHomepage() {
                             className="group bg-white/10 backdrop-blur-lg rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20 h-full"
                           >
                             <div className="relative h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 overflow-hidden">
-                              {proyecto.destacado && (
-                                <div className="absolute top-4 left-4 z-10">
-                                  <span className="px-3 py-1 bg-gradient-to-r from-green-600 to-emerald-500 text-white text-xs font-semibold rounded-full">
-                                    Proyecto Destacado
-                                  </span>
-                                </div>
-                              )}
                               <div className="absolute top-4 right-4 z-10">
                                 <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
                                   {proyecto.estado}
                                 </span>
                               </div>
 
-                              <div className="w-full h-full bg-gradient-to-br from-emerald-200 to-emerald-300 flex items-center justify-center">
-                                <TreePine className="w-16 h-16 text-emerald-600" />
-                              </div>
-
-                              <div className="absolute bottom-4 left-4 right-4 flex justify-between text-xs text-white">
-                                <span className="flex items-center bg-black/50 px-2 py-1 rounded">
-                                  <Calendar className="w-3 h-3 mr-1" />
-                                  {proyecto.añoComplecion}
-                                </span>
-                                <span className="flex items-center bg-black/50 px-2 py-1 rounded">
-                                  <Home className="w-3 h-3 mr-1" />
-                                  {proyecto.lotes}
-                                </span>
-                              </div>
+                              {proyecto.imagen ? (
+                                <>
+                                  <Image
+                                    src={proyecto.imagen}
+                                    alt={proyecto.titulo}
+                                    fill
+                                    className="object-cover"
+                                    style={{ objectPosition: "center 40%" }}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+                                </>
+                              ) : (
+                                <div className="w-full h-full bg-gradient-to-br from-emerald-200 to-emerald-300 flex items-center justify-center">
+                                  <TreePine className="w-16 h-16 text-emerald-600" />
+                                </div>
+                              )}
                             </div>
 
                             <div className="p-3 md:p-4">
@@ -693,7 +715,7 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Integration Modalities Section */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-16 bg-white bg-green-diagonal-alt relative overflow-hidden">
         {/* Textura ligera tipo plano (rejilla) */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
@@ -824,7 +846,7 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Advantages Section */}
-      <section className="py-16 bg-gradient-to-br from-[#231F20] via-[#2a2529] to-[#1a1718] text-white relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden">
         {/* Background overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#231F20]/90 via-transparent to-[#231F20]/90"></div>
         {/* Textura esmeralda tenue */}
@@ -1002,7 +1024,7 @@ export default function ISIPeruHomepage() {
         </div>
       </section>*/}
       {/* Mission & Vision Section */}
-      <section className="py-16 bg-white text-slate-900 relative overflow-hidden">
+      <section className="py-16 bg-white bg-green-diagonal text-slate-900 relative overflow-hidden">
         {/* Textura ligera tipo plano (rejilla) */}
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
@@ -1098,7 +1120,7 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-br from-[#231F20] via-[#2a2529] to-[#1a1718] text-white relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden">
         <div className="container mx-auto px-4">
           {/* Textura esmeralda tenue */}
           <div

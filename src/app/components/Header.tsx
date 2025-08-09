@@ -3,11 +3,39 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const pathname = usePathname();
+
+  const navItems = [
+    { href: "/", label: "Inicio", match: (p: string) => p === "/" },
+    /*{
+      href: "/propiedades",
+      label: "Propiedades",
+      match: (p: string) => p.startsWith("/propiedades"),
+    },
+    {
+      href: "/servicios",
+      label: "Servicios",
+      match: (p: string) => p.startsWith("/servicios"),
+    },*/
+    {
+      href: "/nosotros",
+      label: "Nosotros",
+      match: (p: string) => p.startsWith("/nosotros"),
+    },
+    {
+      href: "/contacto",
+      label: "Contacto",
+      match: (p: string) => p.startsWith("/contacto"),
+    },
+  ];
+
+  const isActivePath = (test: (p: string) => boolean) => test(pathname ?? "");
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -47,21 +75,25 @@ const Header = () => {
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
                 <Phone size={16} />
-                <span>+51 999 123 456</span>
+                <span>900460040</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span>info@isiperu.com</span>
+                <span>isiperu25@gmail.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin size={16} />
-                <span>Lima, Perú</span>
+                <span>Pangoa y Mazamari, Junín</span>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-xs">Síguenos:</span>
               <div className="flex space-x-2">
-                <a href="#" className="hover:text-amber-300 transition-colors">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61576922543152"
+                  target="_blank"
+                  className="hover:text-amber-300 transition-colors"
+                >
                   <span className="sr-only">Facebook</span>
                   <svg
                     className="w-4 h-4"
@@ -71,7 +103,11 @@ const Header = () => {
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                   </svg>
                 </a>
-                <a href="#" className="hover:text-amber-300 transition-colors">
+                <a
+                  href="https://www.instagram.com/isiperu.pe/"
+                  target="_blank"
+                  className="hover:text-amber-300 transition-colors"
+                >
                   <span className="sr-only">Instagram</span>
                   <svg
                     className="w-4 h-4"
@@ -98,11 +134,21 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 group">
               <div
-                className={`relative flex items-center justify-center transition-all duration-300 ${
+                className={`ml-10 relative flex items-center justify-center transition-all duration-300 ${
                   isScrolled ? "w-[40px] h-[40px]" : "w-[48px] h-[48px]"
                 }`}
               >
                 <Image
+                  src="/logo.svg"
+                  alt="ISI Perú"
+                  width={100}
+                  height={100}
+                  style={{ width: "100%", height: "100%" }}
+                  className={`object-contain w-full h-full transform transition-transform duration-300 ${
+                    isScrolled ? "scale-150" : "scale-200"
+                  }`}
+                />
+                {/** <Image
                   src="/logo.png"
                   alt="ISI Perú"
                   width={20}
@@ -123,48 +169,33 @@ const Header = () => {
                     isScrolled ? "text-xs" : "text-sm"
                   }`}
                 >
-                  Integracion Social Inmobiliaria
-                </p>
+                  Integración Social Inmobiliaria
+                </p> */}
               </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <Link
-              href="/"
-              className="text-gray-700 hover:text-[#20B266] font-medium transition-colors duration-200 relative group"
-            >
-              Inicio
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20B266] transition-all duration-200 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/propiedades"
-              className="text-gray-700 hover:text-[#20B266] font-medium transition-colors duration-200 relative group"
-            >
-              Propiedades
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20B266] transition-all duration-200 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/servicios"
-              className="text-gray-700 hover:text-[#20B266] font-medium transition-colors duration-200 relative group"
-            >
-              Servicios
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20B266] transition-all duration-200 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/nosotros"
-              className="text-gray-700 hover:text-[#20B266] font-medium transition-colors duration-200 relative group"
-            >
-              Nosotros
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#20B266] transition-all duration-200 group-hover:w-full"></span>
-            </Link>
-            <Link
-              href="/contacto"
-              className="bg-[#20B266] text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors duration-200 font-medium shadow-md hover:shadow-lg"
-            >
-              Contacto
-            </Link>
+            {navItems.map((item) => {
+              const active = isActivePath(item.match);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`text-gray-700 font-medium transition-colors duration-200 relative group ${
+                    active ? "text-[#20B266]" : "hover:text-[#20B266]"
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-[#20B266] transition-all duration-200 ${
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  ></span>
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -185,41 +216,23 @@ const Header = () => {
         >
           <nav className="pt-4 pb-2 border-t border-gray-100 mt-4">
             <div className="flex flex-col space-y-3">
-              <Link
-                href="/"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-[#20B266] font-medium py-2 px-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
-              >
-                Inicio
-              </Link>
-              <Link
-                href="/propiedades"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-[#20B266] font-medium py-2 px-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
-              >
-                Propiedades
-              </Link>
-              <Link
-                href="/servicios"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-[#20B266] font-medium py-2 px-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
-              >
-                Servicios
-              </Link>
-              <Link
-                href="/nosotros"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-[#20B266] font-medium py-2 px-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
-              >
-                Nosotros
-              </Link>
-              <Link
-                href="/contacto"
-                onClick={closeMenu}
-                className="bg-[#20B266] text-white font-medium py-2 px-3 rounded-md hover:bg-green-600 transition-colors duration-200 text-center"
-              >
-                Contacto
-              </Link>
+              {navItems.map((item) => {
+                const active = isActivePath(item.match);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMenu}
+                    className={`font-medium py-2 px-3 rounded-md transition-colors duration-200 ${
+                      active
+                        ? "text-[#20B266] bg-gray-50"
+                        : "text-gray-700 hover:text-[#20B266] hover:bg-gray-50"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Mobile Contact Info */}
@@ -227,11 +240,11 @@ const Header = () => {
               <div className="flex flex-col space-y-2 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <Phone size={16} />
-                  <span>+51 999 123 456</span>
+                  <span>900460040</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail size={16} />
-                  <span>info@isiperu.com</span>
+                  <span>isiperu25@gmail.com</span>
                 </div>
               </div>
             </div>
