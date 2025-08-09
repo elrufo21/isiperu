@@ -140,7 +140,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Mazamari, Junín",
       estado: "Completado",
       tipo: "Urbanización",
-      imagen: "/valleSagrado.jpg",
+      imagen: "/vallesagrado.jpg",
       caracteristicas: [
         "Diseño moderno",
         "Infraestructura completa",
@@ -155,7 +155,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Mazamari, Junín",
       estado: "Completado",
       tipo: "Proyecto Residencial",
-      imagen: "/villaFlavia.jpg",
+      imagen: "/VillaFlavia.jpg",
       caracteristicas: [
         "Zona privilegiada",
         "Seguridad 24/7",
@@ -185,7 +185,7 @@ export default function ISIPeruHomepage() {
       ubicacion: "Mazamari, Junín",
       estado: "Completado",
       tipo: "Urbanización Residencial",
-      imagen: "/laMolina.webp",
+      imagen: "/lamolina.webp",
       caracteristicas: [
         "Zona exclusiva",
         "Seguridad privada",
