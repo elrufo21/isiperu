@@ -24,13 +24,13 @@ export default function ContactoPage() {
               <Send className="w-4 h-4 mr-2" />
               Contáctanos
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="font-montserrat font-heavy text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
               Inicia tu{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-300">
                 Proyecto Inmobiliario
               </span>
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="font-montserrat font-regular text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
               Te responderemos a la brevedad para brindarte la mejor asesoría en
               desarrollo inmobiliario en la Selva Central del Perú.
             </p>
@@ -39,16 +39,16 @@ export default function ContactoPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 bg-white relative bg-green-diagonal-alt">
+      <section className="py-20 bg-white relative bg-green-diagonal">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                <h2 className="font-montserrat font-heavy text-3xl text-slate-900 mb-4">
                   Información de Contacto
                 </h2>
-                <p className="text-lg text-slate-600">
+                <p className="font-montserrat font-regular text-lg text-slate-600">
                   Estamos aquí para ayudarte con todas tus necesidades
                   inmobiliarias. Contáctanos por cualquiera de estos medios.
                 </p>
@@ -161,7 +161,7 @@ export default function ContactoPage() {
 
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r  from-slate-900 via-slate-800 to-emerald-900 text-white" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-900" />
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">
             ¿Listo para comenzar tu proyecto inmobiliario?

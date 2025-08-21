@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+/* Importación de fuentes Montserrat */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459Wlhyw.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -9,6 +26,10 @@
   --color-accent: #f59e0b;
   --color-success: #10b981;
   --color-error: #ef4444;
+  
+  /* Variables de fuentes Montserrat */
+  --font-montserrat-heavy: 'Montserrat', sans-serif;
+  --font-montserrat-regular: 'Montserrat', sans-serif;
 }
 
 @theme inline {
@@ -16,6 +37,7 @@
   --color-foreground: var(--foreground);
   --font-sans: 'Geist Sans', system-ui, sans-serif;
   --font-mono: 'Geist Mono', monospace;
+  --font-montserrat: 'Montserrat', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +57,32 @@ body {
   color: var(--foreground);
   font-family: 'Geist Sans', system-ui, sans-serif;
   line-height: 1.6;
+}
+
+/* Clases para Montserrat HEAVY - Logotipo y texto con mayor importancia */
+.font-montserrat-heavy {
+  font-family: var(--font-montserrat-heavy);
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Clases para Montserrat REGULAR - Texto con menor importancia */
+.font-montserrat-regular {
+  font-family: var(--font-montserrat-regular);
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Aplicación automática de Montserrat HEAVY a elementos importantes */
+h1, h2, h3, .logo, .brand, .hero-title {
+  font-family: var(--font-montserrat-heavy);
+  font-weight: 900;
+}
+
+/* Aplicación automática de Montserrat REGULAR a texto secundario */
+p, .body-text, .description, .secondary-text {
+  font-family: var(--font-montserrat-regular);
+  font-weight: 400;
 }
 
 /* Utilidades personalizadas */

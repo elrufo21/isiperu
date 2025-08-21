@@ -119,8 +119,10 @@ export default function PropiedadesPage() {
     <div className="min-h-screen">
       <section className="bg-gradient-to-br from-[#231F20] via-[#2a2529] to-[#1a1718] text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold">Propiedades</h1>
-          <p className="text-slate-300 mt-4 max-w-3xl">
+          <h1 className="font-montserrat font-heavy text-4xl md:text-5xl">
+            Propiedades
+          </h1>
+          <p className="font-montserrat font-regular text-slate-300 mt-4 max-w-3xl">
             Portafolio de proyectos y propiedades desarrolladas por ISI Perú en
             la Selva Central. Si deseas ofertar o conocer disponibilidad,
             contáctanos.

@@ -1,6 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import ImageCarousel from "./components/ImageCarousel";
+import SimpleVerticalCarousel from "./components/SimpleVerticalCarousel";
+import { AnimatedCounter } from "../components/ui/AnimatedCounter";
+import { HeroAnimatedCounter } from "../components/ui/HeroAnimatedCounter";
 import {
   Building2,
   Users,
@@ -29,6 +33,7 @@ import {
   Zap,
   ChevronLeft,
 } from "lucide-react";
+import AlliesCarousel from "@/components/AlliesCarousel/AlliesCarousel";
 
 export default function ISIPeruHomepage() {
   const [formData, setFormData] = useState({
@@ -73,8 +78,8 @@ export default function ISIPeruHomepage() {
       titulo: "Ventas y Servicios",
       descripcion:
         "Comercialización integral de propiedades con estrategias personalizadas para maximizar el valor de tu inversión.",
-      color: "from-blue-500 to-blue-600",
-      hoverColor: "hover:from-blue-600 hover:to-blue-700",
+      color: "from-emerald-500 to-emerald-600",
+      hoverColor: "hover:from-emerald-600 hover:to-emerald-700",
       features: [
         "Estrategias de Venta",
         "Evaluación de Propiedades",
@@ -95,8 +100,8 @@ export default function ISIPeruHomepage() {
       titulo: "Marketing",
       descripcion:
         "Estrategias de marketing digital y tradicional con adopción de mecanismos de inteligencia artificial.",
-      color: "from-purple-500 to-purple-600",
-      hoverColor: "hover:from-purple-600 hover:to-purple-700",
+      color: "from-emerald-500 to-emerald-600",
+      hoverColor: "hover:from-emerald-600 hover:to-emerald-700",
       features: [
         "Marketing Digital",
         "Inteligencia Artificial",
@@ -108,8 +113,8 @@ export default function ISIPeruHomepage() {
       titulo: "Asesoría Legal y Saneamiento",
       descripcion:
         "Servicios legales especializados en saneamiento de predios y asesoría jurídica inmobiliaria.",
-      color: "from-orange-500 to-orange-600",
-      hoverColor: "hover:from-orange-600 hover:to-orange-700",
+      color: "from-emerald-500 to-emerald-600",
+      hoverColor: "hover:from-emerald-600 hover:to-emerald-700",
       features: [
         "Saneamiento Legal",
         "Titulación de Predios",
@@ -357,62 +362,22 @@ export default function ISIPeruHomepage() {
     { nombre: "Empresas", descripcion: "Alianzas estratégicas corporativas" },
   ];
 
-  // Auto-scroll para aliados (sin controles)
-  const aliadosRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    const container = aliadosRef.current;
-    if (!container) return;
-    let rafId: number;
-    let lastTs: number | null = null;
-    const speed = 40; // px/seg
-    const tick = (ts: number) => {
-      if (lastTs == null) lastTs = ts;
-      const dt = ts - lastTs;
-      lastTs = ts;
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      if (maxScroll > 0) {
-        container.scrollLeft += (speed * dt) / 1000;
-        if (container.scrollLeft >= maxScroll - 1) container.scrollLeft = 0;
-      }
-      rafId = requestAnimationFrame(tick);
-    };
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
-      <section className="relative min-h-[800px] bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 overflow-hidden ">
-        {/* Elegant Gradient Background */}
-        <div className="absolute inset-0 min-h-[800px] bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
-          <div className="absolute inset-0  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a1718]/80 via-transparent to-[#2a2529]/30"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/5 via-transparent to-emerald-800/3"></div>
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='50' cy='50' r='3'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          ></div>
-        </div>
-
+      <section className="relative min-h-[800px] bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] overflow-hidden ">
         <div className="relative container mx-auto px-4 py-3 lg:py-16">
           <div className="grid lg:grid-cols-2 gap-16 items-center ]">
             <div className="space-y-8">
               <div className="space-y-6">
-                <div className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 rounded-full text-sm font-semibold border border-green-500/30 backdrop-blur-sm">
-                  <Award className="w-5 h-5 mr-2" />
-                  Líder en la Selva Central desde 2010
-                </div>
-                <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white">
+                <h1 className="font-montserrat font-heavy text-5xl md:text-7xl leading-tight text-white">
                   Integración Social{" "}
-                  <span className="bg-gradient-to-r from-green-500 to-emerald-400 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
                     Inmobiliaria
                   </span>{" "}
                   Perú
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+                <p className="font-montserrat font-regular text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl">
                   Más de 14 años especializados en habilitaciones urbanas y
                   desarrollo inmobiliario en la Selva Central del Perú.
                   Integramos a personas naturales y jurídicas del sector
@@ -427,7 +392,7 @@ export default function ISIPeruHomepage() {
                       ?.getElementById("proyectos")
                       ?.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-green-500/25"
+                  className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-emerald-500/25"
                 >
                   Ver Proyectos
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -444,53 +409,69 @@ export default function ISIPeruHomepage() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8 pt-8">
                 {estadisticas.map((stat, index) => (
-                  <div key={index} className="text-center group">
-                    <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-500 to-emerald-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
-                      {stat.numero}
-                    </div>
-                    <div className="text-sm text-gray-400 font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
+                  <HeroAnimatedCounter
+                    key={index}
+                    end={stat.numero}
+                    label={stat.label}
+                    duration={2000}
+                    delay={index * 150} // Cada contador se anima con un pequeño delay
+                  />
                 ))}
               </div>
             </div>
 
-            {/* Hero Image */}
+            {/* Hero Image Carousel */}
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-white/5">
-                <Image
-                  src="/hero.png"
-                  alt="ISI Perú"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  priority
-                  className="object-contain w-full h-auto"
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </div>
+              <ImageCarousel
+                images={[
+                  {
+                    src: "/hori1.webp",
+                    alt: "Hori1 - Proyecto Residencial",
+                  },
+                  {
+                    src: "/hori2.webp",
+                    alt: "Hori2 - Proyecto Residencial",
+                  },
+                  {
+                    src: "/hori3.webp",
+                    alt: "Hori3 - Proyecto Residencial",
+                  },
+                  {
+                    src: "/SanIsidro.jpg",
+                    alt: "San Isidro - Proyecto Residencial",
+                  },
+                  {
+                    src: "/ecovida.jpg",
+                    alt: "Eco Vida - Desarrollo Sostenible",
+                  },
+                  {
+                    src: "/espDeVida.jpg",
+                    alt: "Espacio de Vida - Comunidad Integrada",
+                  },
+                  {
+                    src: "/VillaFlavia.jpg",
+                    alt: "Villa Flavia - Residencial Exclusivo",
+                  },
+                  { src: "/lamolina.webp", alt: "La Molina - Zona Premium" },
+                  {
+                    src: "/vallesagrado.jpg",
+                    alt: "Valle Sagrado - Naturaleza y Confort",
+                  },
+                ]}
+                interval={5000}
+              />
             </div>
           </div>
         </div>
       </section>
       {/* Services Section */}
       <section className="py-16 bg-white bg-green-diagonal relative overflow-hidden">
-        {/* Textura ligera tipo plano (rejilla) */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40 M0 0V40' stroke='%23e5e7eb' stroke-width='1' stroke-opacity='1' /%3E%3C/svg%3E\")",
-            backgroundSize: "40px 40px",
-          }}
-        />
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+            <h2 className="font-montserrat font-heavy text-4xl md:text-5xl text-slate-800 mb-6">
               Servicios Especializados
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="font-montserrat font-regular text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Brindamos soluciones integrales en proyectos inmobiliarios con un
               equipo de trabajo calificado, asegurando efectividad y desarrollo
               sostenible.
@@ -510,10 +491,10 @@ export default function ISIPeruHomepage() {
                   >
                     <servicio.icono className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-4">
+                  <h3 className="font-montserrat font-heavy text-xl text-slate-800 mb-4">
                     {servicio.titulo}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="font-montserrat font-regular text-gray-600 leading-relaxed mb-6">
                     {servicio.descripcion}
                   </p>
                   <div className="space-y-2">
@@ -522,7 +503,7 @@ export default function ISIPeruHomepage() {
                         key={idx}
                         className="flex items-center text-sm text-gray-600"
                       >
-                        <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0" />
                         {feature}
                       </div>
                     ))}
@@ -536,30 +517,19 @@ export default function ISIPeruHomepage() {
       {/* Projects Section */}
       <section
         id="proyectos"
-        className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden"
+        className="py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] text-white relative overflow-hidden"
       >
         {/* Background overlay for better readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#231F20]/90 via-transparent to-[#231F20]/90"></div>
+        <div className="absolute inset-0 "></div>
         {/* Textura esmeralda tenue */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40 M0 0V40' stroke='%2310b981' stroke-width='1' stroke-opacity='0.4' /%3E%3C/svg%3E\")",
-            backgroundSize: "40px 40px",
-          }}
-        />
+
         <div className="relative z-10 container mx-auto px-4">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-6">
             <div>
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-emerald-400/20 text-emerald-400 rounded-full text-sm font-semibold mb-4 border border-emerald-500/30">
-                <Building2 className="w-4 h-4 mr-2" />
-                Proyectos Exitosos
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="font-montserrat font-heavy text-4xl md:text-5xl text-white mb-4">
                 Nuestras Realizaciones
               </h2>
-              <p className="text-xl text-slate-300 max-w-2xl">
+              <p className="font-montserrat font-regular text-xl text-slate-300 max-w-2xl">
                 ISI ha realizado habilitaciones urbanas y titulación de
                 urbanizaciones en Pangoa y Mazamari, posicionándose como líder
                 en la región.
@@ -616,7 +586,7 @@ export default function ISIPeruHomepage() {
                           >
                             <div className="relative h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 overflow-hidden">
                               <div className="absolute top-4 right-4 z-10">
-                                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
                                   {proyecto.estado}
                                 </span>
                               </div>
@@ -714,26 +684,187 @@ export default function ISIPeruHomepage() {
           </div>
         </div>
       </section>
-      {/* Integration Modalities Section */}
-      <section className="py-16 bg-white bg-green-diagonal-alt relative overflow-hidden">
+      {/* Advantages Section */}
+      <section className="py-16 bg-white bg-green-diagonal text-slate-900 relative overflow-hidden">
+        {/* Background overlay */}
+
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+                ¿Por qué elegir ISI Perú?
+              </h2>
+              <p className="text-xl text-slate-700 mb-12 leading-relaxed">
+                Nuestro objetivo es integrar a las organizaciones y dotar de
+                conocimientos, servicios y materiales a quienes lo soliciten,
+                fortaleciendo el sector inmobiliario.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {ventajas.map((ventaja, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-xl flex items-center justify-center">
+                      <ventaja.icono className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                        {ventaja.titulo}
+                      </h3>
+                      <p className="text-slate-700">{ventaja.descripcion}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Information */}
+            <SimpleVerticalCarousel />
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision Section */}
+      <section className="py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] overflow-hidden">
         {/* Textura ligera tipo plano (rejilla) */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40 M0 0V40' stroke='%23e5e7eb' stroke-width='1' stroke-opacity='1' /%3E%3C/svg%3E\")",
-            backgroundSize: "40px 40px",
-          }}
-        />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.07]" />
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
+            <div className="h-full flex flex-col">
+              <div className="mb-8">
+                <div className="inline-flex items-center px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-semibold mb-6 border border-emerald-200">
+                  <Target className="w-4 h-4 mr-2" />
+                  Nuestra Misión
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-emerald-400  mb-6">
+                  Integramos el Sector Inmobiliario
+                </h2>
+                <p className="text-lg text-white leading-relaxed">
+                  Somos una organización dedicada a integrar a personas
+                  naturales y jurídicas en el sector inmobiliario. Estamos
+                  especializados en brindar soluciones integrales en proyectos
+                  inmobiliarios con un equipo de trabajo calificado. Buscamos
+                  asegurar la efectividad, competitividad y el desarrollo
+                  sostenible en nuestra sociedad.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 items-stretch mt-auto">
+                <div className="p-6  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
+                  <CheckCircle className="w-8 h-8 text-emerald-600" />
+                  <h4 className="font-semibold text-white ">
+                    Soluciones Integrales
+                  </h4>
+                  <p className="text-white text-sm">
+                    Servicios completos para el sector inmobiliario
+                  </p>
+                </div>
+                <div className="p-6  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
+                  <Users className="w-8 h-8 text-emerald-600" />
+                  <h4 className="font-semibold text-white ">
+                    Equipo Calificado
+                  </h4>
+                  <p className="text-white text-sm">
+                    Profesionales especializados en cada <br /> área
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="h-full flex flex-col">
+              <div className="mb-8">
+                <div className="inline-flex items-center px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-semibold mb-6 border border-emerald-200">
+                  <Eye className="w-4 h-4 mr-2" />
+                  Nuestra Visión
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-emerald-400  mb-6">
+                  Líderes del País
+                </h2>
+                <p className="text-lg text-white leading-relaxed">
+                  Ser la organización líder en el país, con alianzas
+                  estratégicas para negocios del sector inmobiliario. Queremos
+                  resaltar por nuestra calidad e innovación, generando valor
+                  para nuestros inversionistas, accionistas, clientes,
+                  colaboradores y la sociedad.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6 items-stretch mt-auto">
+                <div className="p-6  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
+                  <Award className="w-8 h-8 text-emerald-600" />
+                  <h4 className="font-semibold text-white ">
+                    Calidad e Innovación
+                  </h4>
+                  <p className="text-white text-sm">
+                    Estándares de excelencia en todos nuestros proyectos
+                  </p>
+                </div>
+                <div className="p-6  bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
+                  <Handshake className="w-8 h-8 text-emerald-600" />
+                  <h4 className="font-semibold text-white ">
+                    Alianzas Estratégicas
+                  </h4>
+                  <p className="text-white text-sm">
+                    Red de socios para maximizar oportunidades
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Stats Section */}
+      <section className="py-16  bg-white bg-green-diagonal-alt relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          {/* Textura esmeralda tenue */}
+
+          <div className="text-center mb-16">
+            <h2 className="font-montserrat font-heavy text-4xl md:text-5xl mb-6">
+              Números que Respaldan Nuestra Experiencia
+            </h2>
+            <p className="font-montserrat font-regular text-xl text-slate-700 max-w-3xl mx-auto">
+              Más de una década transformando la Selva Central con proyectos
+              exitosos y familias satisfechas
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {estadisticasEmpresa.map((stat, index) => (
+              <AnimatedCounter
+                key={index}
+                end={stat.numero}
+                label={stat.label}
+                icon={stat.icon}
+                duration={2000}
+                delay={index * 200} // Cada contador se anima con un pequeño delay
+              />
+            ))}
+          </div>
+        </div>
+        <div className="container mx-auto px-4 mt-12 md:mt-16 ">
+          <div className="rounded-2xl bg-white py-4 px-2 border border-emerald-200 shadow-lg">
+            <div className="flex items-center justify-between mb-3 px-2">
+              <span className="text-sm font-semibold text-emerald-700">
+                Aliados
+              </span>
+            </div>
+
+            <AlliesCarousel />
+          </div>
+        </div>
+      </section>
+      {/* Integration Modalities Section */}
+      <section className="py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]  overflow-hidden ">
+        {/* Textura ligera tipo plano (rejilla) */}
+
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
             {/* Left: heading + cards */}
             <div>
               <div className="mb-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+                <h2 className="text-4xl md:text-5xl font-bold text-emerald-400 mb-4">
                   Únete a ISI Perú
                 </h2>
-                <p className="text-lg md:text-xl text-gray-600 max-w-3xl leading-relaxed">
+                <p className="text-lg md:text-xl text-white max-w-3xl leading-relaxed">
                   Ofrecemos diferentes modalidades para que puedas integrarte a
                   nuestra organización según tus objetivos y capacidades de
                   inversión.
@@ -743,24 +874,24 @@ export default function ISIPeruHomepage() {
                 {modalidadesIntegracion.map((modalidad, index) => (
                   <div
                     key={index}
-                    className="group h-full flex flex-col bg-gradient-to-br from-white to-gray-50 p-5 md:p-6 lg:p-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 md:min-h-[300px] lg:min-h-[340px]"
+                    className="group h-full flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 p-5 md:p-6 lg:p-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 md:min-h-[300px] lg:min-h-[340px]"
                   >
-                    <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-green-600 to-emerald-500 text-white rounded-2xl mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-2xl mb-3 md:mb-4 group-hover:scale-110 transition-transform">
                       <modalidad.icono className="w-8 h-8" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">
+                    <h3 className="text-xl font-bold text-white mb-2">
                       {modalidad.titulo}
                     </h3>
-                    <p className="text-gray-600 mb-3 leading-snug text-sm">
+                    <p className="text-white mb-3 leading-snug text-sm">
                       {modalidad.descripcion}
                     </p>
                     <div className="space-y-1.5 mt-auto">
                       {modalidad.beneficios.map((beneficio, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center text-[13px] md:text-sm text-gray-600"
+                          className="flex items-center text-[13px] md:text-sm text-white"
                         >
-                          <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
+                          <CheckCircle className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0" />
                           {beneficio}
                         </div>
                       ))}
@@ -772,13 +903,13 @@ export default function ISIPeruHomepage() {
 
             {/* Right: Contact Form */}
             <div className="relative">
-              <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-2xl">
+              <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 rounded-3xl p-8 border border-gray-200 shadow-2xl">
                 <div className="space-y-6">
                   <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                    <h3 className="text-2xl font-bold text-emerald-400 mb-2">
                       Contáctanos
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-white">
                       Inicia tu proyecto inmobiliario hoy
                     </p>
                   </div>
@@ -789,7 +920,7 @@ export default function ISIPeruHomepage() {
                       placeholder="Nombre completo"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                       required
                     />
                     <input
@@ -798,7 +929,7 @@ export default function ISIPeruHomepage() {
                       placeholder="Correo electrónico"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                       required
                     />
                     <input
@@ -807,13 +938,13 @@ export default function ISIPeruHomepage() {
                       placeholder="Teléfono"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                     />
                     <select
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                     >
                       <option value="">Servicio de interés</option>
                       <option value="ventas">Ventas y Servicios</option>
@@ -829,362 +960,17 @@ export default function ISIPeruHomepage() {
                       rows={3}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
+                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none"
                     ></textarea>
                     <button
                       type="submit"
-                      className="w-full p-4 bg-gradient-to-r from-green-600 to-emerald-500 hover:from-green-700 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg"
+                      className="w-full p-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg"
                     >
                       <Mail className="w-5 h-5 inline mr-2" />
                       Enviar Consulta
                     </button>
                   </form>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Advantages Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden">
-        {/* Background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#231F20]/90 via-transparent to-[#231F20]/90"></div>
-        {/* Textura esmeralda tenue */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40 M0 0V40' stroke='%2310b981' stroke-width='1' stroke-opacity='0.4' /%3E%3C/svg%3E\")",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="relative z-10 container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-500/20 to-emerald-400/20 text-emerald-400 rounded-full text-sm font-semibold mb-6 border border-emerald-500/30">
-                <Award className="w-4 h-4 mr-2" />
-                Nuestras Ventajas
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">
-                ¿Por qué elegir ISI Perú?
-              </h2>
-              <p className="text-xl text-slate-300 mb-12 leading-relaxed">
-                Nuestro objetivo es integrar a las organizaciones y dotar de
-                conocimientos, servicios y materiales a quienes lo soliciten,
-                fortaleciendo el sector inmobiliario.
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {ventajas.map((ventaja, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-xl flex items-center justify-center">
-                      <ventaja.icono className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-2">
-                        {ventaja.titulo}
-                      </h3>
-                      <p className="text-gray-300">{ventaja.descripcion}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl">
-              <h3 className="text-2xl font-bold mb-8">
-                Información de Contacto
-              </h3>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4 p-4 bg-white/10 rounded-xl">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-xl flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-300">Celular</p>
-                    <a
-                      href="tel:900460040"
-                      className="font-semibold hover:text-green-400 transition-colors"
-                    >
-                      900460040
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4 p-4 bg-white/10 rounded-xl">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-xl flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-300">Email</p>
-                    <a
-                      href="mailto:isiperu25@gmail.com"
-                      className="font-semibold hover:text-green-400 transition-colors"
-                    >
-                      isiperu25@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4 p-4 bg-white/10 rounded-xl">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-300">Oficinas</p>
-                    <p className="font-semibold mb-1">
-                      Calle 3 de Noviembre s/n - Pangoa
-                    </p>
-                    <p className="font-semibold">
-                      Av. Victor Andrés Bélaunde 420 - Mazamari
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4 p-4 bg-white/10 rounded-xl">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-xl flex items-center justify-center">
-                    <Globe className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-300">Redes Sociales</p>
-                    <p className="font-semibold">ISI PERU</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Testimonials Section 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-600/10 to-emerald-500/10 text-green-600 rounded-full text-sm font-semibold mb-6">
-              <Star className="w-4 h-4 mr-2" />
-              Testimonios
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Lo que dicen nuestros clientes
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Más de 1000 familias han confiado en nosotros para sus proyectos
-              inmobiliarios en la Selva Central del Perú
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonios.map((testimonio, index) => (
-              <div
-                key={index}
-                className="group bg-gradient-to-br from-white to-gray-50 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100"
-              >
-                <div className="flex mb-6">
-                  {[...Array(testimonio.calificacion)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic leading-relaxed">
-                  &ldquo;{testimonio.comentario}&rdquo;
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full mr-4 flex items-center justify-center">
-                      <Users className="w-6 h-6 text-gray-500" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-slate-800">
-                        {testimonio.nombre}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {testimonio.cargo}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">
-                      <Briefcase className="w-4 h-4 inline mr-1" />
-                      {testimonio.proyecto}
-                    </span>
-                    <span className="text-green-600 font-semibold">
-                      {testimonio.tiempo}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>*/}
-      {/* Mission & Vision Section */}
-      <section className="py-16 bg-white bg-green-diagonal text-slate-900 relative overflow-hidden">
-        {/* Textura ligera tipo plano (rejilla) */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40 M0 0V40' stroke='%23e5e7eb' stroke-width='1' stroke-opacity='1' /%3E%3C/svg%3E\")",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-            <div className="h-full flex flex-col">
-              <div className="mb-8">
-                <div className="inline-flex items-center px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-semibold mb-6 border border-emerald-200">
-                  <Target className="w-4 h-4 mr-2" />
-                  Nuestra Misión
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  Integramos el Sector Inmobiliario
-                </h2>
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  Somos una organización dedicada a integrar a personas
-                  naturales y jurídicas en el sector inmobiliario. Estamos
-                  especializados en brindar soluciones integrales en proyectos
-                  inmobiliarios con un equipo de trabajo calificado. Buscamos
-                  asegurar la efectividad, competitividad y el desarrollo
-                  sostenible en nuestra sociedad.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 items-stretch mt-auto">
-                <div className="p-6 bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
-                  <CheckCircle className="w-8 h-8 text-emerald-600 mb-4" />
-                  <h4 className="font-semibold text-slate-900 mb-2">
-                    Soluciones Integrales
-                  </h4>
-                  <p className="text-slate-600 text-sm">
-                    Servicios completos para el sector inmobiliario
-                  </p>
-                </div>
-                <div className="p-6 bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
-                  <Users className="w-8 h-8 text-emerald-600 mb-4" />
-                  <h4 className="font-semibold text-slate-900 mb-2">
-                    Equipo Calificado
-                  </h4>
-                  <p className="text-slate-600 text-sm">
-                    Profesionales especializados en cada área
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="h-full flex flex-col">
-              <div className="mb-8">
-                <div className="inline-flex items-center px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-semibold mb-6 border border-emerald-200">
-                  <Eye className="w-4 h-4 mr-2" />
-                  Nuestra Visión
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                  Líderes del País
-                </h2>
-                <p className="text-lg text-slate-600 leading-relaxed">
-                  Ser la organización líder en el país, con alianzas
-                  estratégicas para negocios del sector inmobiliario. Queremos
-                  resaltar por nuestra calidad e innovación, generando valor
-                  para nuestros inversionistas, accionistas, clientes,
-                  colaboradores y la sociedad.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 items-stretch mt-auto">
-                <div className="p-6 bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
-                  <Award className="w-8 h-8 text-emerald-600 mb-4" />
-                  <h4 className="font-semibold text-slate-900 mb-2">
-                    Calidad e Innovación
-                  </h4>
-                  <p className="text-slate-600 text-sm">
-                    Estándares de excelencia en todos nuestros proyectos
-                  </p>
-                </div>
-                <div className="p-6 bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col justify-between min-h-[200px]">
-                  <Handshake className="w-8 h-8 text-emerald-600 mb-4" />
-                  <h4 className="font-semibold text-slate-900 mb-2">
-                    Alianzas Estratégicas
-                  </h4>
-                  <p className="text-slate-600 text-sm">
-                    Red de socios para maximizar oportunidades
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 text-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          {/* Textura esmeralda tenue */}
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.06]"
-            style={{
-              backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0H40 M0 0V40' stroke='%2310b981' stroke-width='1' stroke-opacity='0.4' /%3E%3C/svg%3E\")",
-              backgroundSize: "40px 40px",
-            }}
-          />
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Números que Respaldan Nuestra Experiencia
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Más de una década transformando la Selva Central con proyectos
-              exitosos y familias satisfechas
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {estadisticasEmpresa.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-20 h-20 bg-gradient-to-r from-green-600 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <stat.icon className="w-10 h-10 text-white" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-500 to-emerald-400 bg-clip-text text-transparent mb-2">
-                  {stat.numero}
-                </div>
-                <div className="text-gray-300 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="container mx-auto px-4 mt-12 md:mt-16 ">
-          <div className="rounded-2xl bg-white py-4 px-2 border border-emerald-100 shadow-lg">
-            <div className="flex items-center justify-between mb-3 px-2">
-              <span className="text-sm font-semibold text-emerald-700">
-                Aliados
-              </span>
-            </div>
-            <div
-              ref={aliadosRef}
-              className="overflow-x-hidden whitespace-nowrap [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
-            >
-              <div className="inline-flex items-center gap-8 pr-8">
-                {aliados.concat(aliados).map((a, i) => (
-                  <div
-                    key={`${a.nombre}-${i}`}
-                    className="inline-flex items-center gap-3 text-slate-700"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center">
-                      <Handshake className="w-5 h-5 text-emerald-600" />
-                    </div>
-                    <div className="leading-tight">
-                      <div className="text-sm font-semibold text-slate-800">
-                        {a.nombre}
-                      </div>
-                      <div className="text-xs text-slate-500">
-                        {a.descripcion}
-                      </div>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>

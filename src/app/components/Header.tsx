@@ -75,19 +75,25 @@ const Header = () => {
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
                 <Phone size={16} />
-                <span>900460040</span>
+                <span className="font-montserrat font-regular">900460040</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span>isiperu25@gmail.com</span>
+                <span className="font-montserrat font-regular">
+                  isiperu25@gmail.com
+                </span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin size={16} />
-                <span>Pangoa y Mazamari, Junín</span>
+                <span className="font-montserrat font-regular">
+                  Pangoa y Mazamari, Junín
+                </span>
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="text-xs">Síguenos:</span>
+              <span className="text-xs font-montserrat font-regular">
+                Síguenos:
+              </span>
               <div className="flex space-x-2">
                 <a
                   href="https://www.facebook.com/profile.php?id=61576922543152"
@@ -158,14 +164,14 @@ const Header = () => {
               </div>
               <div className="flex flex-col justify-center">
                 <h1
-                  className={`font-bold text-gray-800 transition-all duration-300 ${
+                  className={`font-montserrat font-heavy text-gray-800 transition-all duration-300 ${
                     isScrolled ? "text-xl" : "text-2xl"
                   }`}
                 >
                   ISI Perú
                 </h1>
                 <p
-                  className={`text-gray-600 -mt-1 transition-all duration-300 ${
+                  className={`font-montserrat font-regular text-gray-600 -mt-1 transition-all duration-300 ${
                     isScrolled ? "text-xs" : "text-sm"
                   }`}
                 >
@@ -183,7 +189,7 @@ const Header = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-gray-700 font-medium transition-colors duration-200 relative group ${
+                  className={`font-montserrat font-regular text-gray-700 transition-colors duration-200 relative group ${
                     active ? "text-[#20B266]" : "hover:text-[#20B266]"
                   }`}
                 >
@@ -223,7 +229,7 @@ const Header = () => {
                     key={item.href}
                     href={item.href}
                     onClick={closeMenu}
-                    className={`font-medium py-2 px-3 rounded-md transition-colors duration-200 ${
+                    className={`font-montserrat font-regular py-2 px-3 rounded-md transition-colors duration-200 ${
                       active
                         ? "text-[#20B266] bg-gray-50"
                         : "text-gray-700 hover:text-[#20B266] hover:bg-gray-50"
@@ -240,11 +246,15 @@ const Header = () => {
               <div className="flex flex-col space-y-2 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
                   <Phone size={16} />
-                  <span>900460040</span>
+                  <span className="font-montserrat font-regular">
+                    900460040
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail size={16} />
-                  <span>isiperu25@gmail.com</span>
+                  <span className="font-montserrat font-regular">
+                    isiperu25@gmail.com
+                  </span>
                 </div>
               </div>
             </div>

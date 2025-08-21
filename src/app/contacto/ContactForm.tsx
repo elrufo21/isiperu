@@ -114,11 +114,11 @@ export default function ContactoForm() {
   return (
     <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 relative overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-blue-500/10 rounded-full blur-2xl" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-emerald-400/10 rounded-full blur-2xl" />
 
       <div className="relative z-10">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
             <Send className="w-8 h-8 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-slate-900 mb-2">
@@ -289,7 +289,7 @@ export default function ContactoForm() {
             className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center space-x-2 ${
               isSubmitting
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 hover:shadow-lg hover:shadow-emerald-200/50 active:scale-[0.98]"
+                : "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 hover:shadow-lg hover:shadow-emerald-200/50 active:scale-[0.98]"
             }`}
           >
             {isSubmitting ? (

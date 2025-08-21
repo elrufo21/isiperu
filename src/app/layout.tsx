@@ -3,29 +3,29 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import JsonLd from "./components/JsonLd";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geist = Geist({
   subsets: ["latin"],
+  variable: "--font-geist",
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
-  title: "ISI Perú - Inmobiliaria en Perú | Venta y Alquiler de Propiedades",
+  title: "ISIPERU - Inmobiliaria en Lima, Perú",
   description:
-    "Encuentra tu hogar ideal en Perú. ISI Perú te ofrece las mejores propiedades en venta y alquiler con asesoría profesional. Más de 10 años de experiencia en el mercado inmobiliario peruano.",
+    "Encuentra las mejores propiedades en Lima, Perú. Casas, departamentos y terrenos en las mejores ubicaciones. ISIPERU, tu socio inmobiliario de confianza.",
   keywords:
-    "inmobiliaria, propiedades, venta, alquiler, casas, departamentos, Perú, Lima, ISI Perú, bienes raíces",
-  authors: [{ name: "ISI Perú" }],
-  creator: "ISI Perú",
-  publisher: "ISI Perú",
+    "inmobiliaria, propiedades, casas, departamentos, Lima, Perú, ISIPERU",
+  authors: [{ name: "ISIPERU" }],
+  creator: "ISIPERU",
+  publisher: "ISIPERU",
   formatDetection: {
     email: false,
     address: false,
@@ -35,32 +35,29 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  icons: {
-    icon: [{ url: "/favicon.ico" }],
-  },
-  manifest: "/site.webmanifest",
   openGraph: {
-    title: "ISI Perú - Inmobiliaria en Perú | Venta y Alquiler de Propiedades",
+    title: "ISIPERU - Inmobiliaria en Lima, Perú",
     description:
-      "Encuentra tu hogar ideal en Perú. ISI Perú te ofrece las mejores propiedades en venta y alquiler con asesoría profesional.",
+      "Encuentra las mejores propiedades en Lima, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
     url: "https://isiperu.com",
-    siteName: "ISI Perú",
-    locale: "es_PE",
-    type: "website",
+    siteName: "ISIPERU",
     images: [
       {
-        url: "/logo.png",
+        url: "/hero.png",
         width: 1200,
         height: 630,
-        alt: "ISI Perú - Inmobiliaria en Perú",
+        alt: "ISIPERU - Inmobiliaria en Lima, Perú",
       },
     ],
+    locale: "es_PE",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ISI Perú - Inmobiliaria en Perú",
-    description: "Encuentra tu hogar ideal en Perú con ISI Perú",
-    images: ["/logo.png"],
+    title: "ISIPERU - Inmobiliaria en Lima, Perú",
+    description:
+      "Encuentra las mejores propiedades en Lima, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
+    images: ["/hero.png"],
   },
   robots: {
     index: true,
@@ -74,24 +71,34 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "Z-fQabJphFvmm3Axqu1pUpmQ_JjsJyssICfZIvtj_1o",
+    google: "your-google-verification-code",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="es">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${geist.variable} ${geistMono.variable}`}>
         <GoogleAnalytics />
         <JsonLd />
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
         <FloatingWhatsApp />
       </body>

@@ -1,0 +1,41 @@
+/* Animación optimizada para el carousel de aliados */
+@keyframes scroll-aliados-optimized {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.333%, 0, 0);
+  }
+}
+
+.animate-scroll-aliados-optimized {
+  animation: scroll-aliados-optimized 25s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Pausa en hover para mejor UX */
+.animate-scroll-aliados-optimized:hover {
+  animation-play-state: paused;
+}
+
+/* Optimizaciones para dispositivos móviles */
+@media (max-width: 768px) {
+  .animate-scroll-aliados-optimized {
+    animation-duration: 20s;
+  }
+}
+
+/* Optimizaciones para dispositivos de alta resolución */
+@media (min-width: 1920px) {
+  .animate-scroll-aliados-optimized {
+    animation-duration: 30s;
+  }
+}
+
+/* Reducir motion para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-aliados-optimized {
+    animation: none;
+  }
+}

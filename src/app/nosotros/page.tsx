@@ -40,14 +40,14 @@ export default function NosotrosPage() {
                 Sobre Nosotros
               </Badge>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-[1.1] text-white">
+              <h1 className="font-montserrat font-heavy text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-[1.1] text-white">
                 Transformando la
-                <span className="block text-transparent bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text">
+                <span className="block text-transparent bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text">
                   Selva Central
                 </span>
               </h1>
 
-              <p className="text-xl sm:text-2xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="font-montserrat font-regular text-xl sm:text-2xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
                 Con más de 14 años de experiencia, ISI Perú lidera el desarrollo
                 inmobiliario sostenible, integrando comunidades y transformando
                 territorios.
@@ -72,7 +72,7 @@ export default function NosotrosPage() {
             {/* Stats Column */}
             <div className="lg:col-span-5 mt-8 lg:mt-0">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-teal-600/20 rounded-3xl blur-xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-emerald-500/20 rounded-3xl blur-xl" />
                 <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-6 lg:p-8 border border-white/20 shadow-2xl">
                   <h3 className="text-lg font-semibold text-white mb-6 text-center">
                     Nuestros Números
@@ -97,7 +97,7 @@ export default function NosotrosPage() {
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-emerald-600/30 to-teal-600/30 backdrop-blur-sm rounded-xl p-4 text-center border border-emerald-400/30">
+                  <div className="bg-gradient-to-r from-emerald-600/30 to-emerald-500/30 backdrop-blur-sm rounded-xl p-4 text-center border border-emerald-400/30">
                     <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
                       90%
                     </div>
@@ -115,16 +115,22 @@ export default function NosotrosPage() {
 
       {/* Company Overview */}
       <section className="py-16 lg:py-24 bg-white relative overflow-hidden  bg-green-diagonal-alt">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-emerald-50/50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-emerald-100/50" />
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Quiénes Somos
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Integración Social Inmobiliaria (ISI) Perú es la respuesta al
-              desafío del crecimiento informal del sector inmobiliario en la
-              Selva Central.
+            <p className="text-lg text-gray-600  mx-auto leading-relaxed">
+              Integración Social Inmobiliaria (I.S.I. Perú) es una empresa
+              innovadora que se dedica a conectar personas naturales y jurídicas
+              en el sector inmobiliario. Nos especializamos en brindar
+              soluciones completas y especializadas en consultoría, asistencia,
+              compraventa y desarrollo de proyectos inmobiliarios, asegurando
+              procesos transparentes y eficientes. Nuestro enfoque está en
+              fortalecer a nuestros clientes con herramientas y conocimientos
+              para transformar sus aspiraciones inmobiliarias en realidades
+              sólidas y rentables.
             </p>
           </div>
 
@@ -314,7 +320,7 @@ export default function NosotrosPage() {
                     (modalidad) => (
                       <div
                         key={modalidad}
-                        className="text-center p-4 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-100"
+                        className="text-center p-4 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl border border-emerald-100"
                       >
                         <div className="text-lg font-semibold text-emerald-800 mb-1">
                           {modalidad}
@@ -401,7 +407,7 @@ export default function NosotrosPage() {
               ].map((aliado) => (
                 <div
                   key={aliado.name}
-                  className="text-center p-6 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl border border-emerald-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  className="text-center p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl border border-emerald-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="text-4xl mb-4">{aliado.icon}</div>
                   <div className="font-semibold text-gray-900">

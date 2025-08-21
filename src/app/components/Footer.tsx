@@ -28,11 +28,15 @@ const Footer = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold">ISI Perú</h3>
-                <p className="text-sm text-gray-400">Inmobiliaria</p>
+                <h3 className="font-montserrat font-heavy text-xl text-white">
+                  ISI Perú
+                </h3>
+                <p className="font-montserrat font-regular text-sm text-gray-400">
+                  Inmobiliaria
+                </p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="font-montserrat font-regular text-gray-400 text-sm leading-relaxed">
               Integración Social Inmobiliaria (ISI) Perú integra a personas
               naturales y jurídicas en el sector inmobiliario. Más de 14 años
               liderando habilitaciones urbanas en la Selva Central.
@@ -71,43 +75,43 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">
+            <h4 className="font-montserrat font-heavy text-lg text-white">
               Enlaces Rápidos
             </h4>
             <nav className="flex flex-col space-y-2">
               <Link
                 href="/"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Inicio
               </Link>
               <Link
                 href="/propiedades"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Propiedades
               </Link>
               <Link
                 href="/propiedades?tipo=venta"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Propiedades en Venta
               </Link>
               <Link
                 href="/propiedades?tipo=alquiler"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Propiedades en Alquiler
               </Link>
               <Link
                 href="/servicios"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Servicios
               </Link>
               <Link
                 href="/nosotros"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Nosotros
               </Link>
@@ -116,31 +120,31 @@ const Footer = () => {
 
           {/* Services */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">
+            <h4 className="font-montserrat font-heavy text-lg text-white">
               Áreas de Trabajo
             </h4>
             <nav className="flex flex-col space-y-2">
               <Link
                 href="#areas/ventas"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Ventas y Servicios
               </Link>
               <Link
                 href="#areas/consolidacion"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Consolidación Empresarial
               </Link>
               <Link
                 href="#areas/marketing"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Marketing
               </Link>
               <Link
                 href="#areas/asesoria-legal"
-                className="text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Asesoría Legal y Saneamiento de Predios
               </Link>
@@ -149,7 +153,9 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Contacto</h4>
+            <h4 className="font-montserrat font-heavy text-lg text-white">
+              Contacto
+            </h4>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin
@@ -194,7 +200,7 @@ const Footer = () => {
       <div className="bg-gray-950 border-t border-gray-800">
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0">
-            <p className="text-sm text-gray-400">
+            <p className="font-montserrat font-regular text-sm text-gray-400">
               &copy; {new Date().getFullYear()} ISI Perú Inmobiliaria. Todos los
               derechos reservados.
             </p>
