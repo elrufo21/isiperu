@@ -1,24 +1,15 @@
+"use client";
+import AlliesCarousel from "@/components/AlliesCarousel";
 import { Badge } from "lucide-react";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Nosotros | ISI Perú - Líderes en Desarrollo Inmobiliario",
-  description:
-    "Conoce ISI Perú: 14+ años transformando la Selva Central con desarrollos inmobiliarios sostenibles. Historia, misión, visión y proyectos exitosos.",
-  alternates: { canonical: "/nosotros" },
-  openGraph: {
-    title: "Nosotros | ISI Perú",
-    description:
-      "Líderes en desarrollo inmobiliario sostenible en la Selva Central del Perú",
-    type: "website",
-  },
-};
+import { useState } from "react";
 
 export default function NosotrosPage() {
+  const [activeTab, setActiveTab] = useState("objetivos");
+
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
+      <section className="relative min-h-[500px] sm:min-h-[600px] flex items-center overflow-hidden bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]">
         {/* Background with optimized loading */}
         <div className="absolute inset-0">
           <div
@@ -29,40 +20,40 @@ export default function NosotrosPage() {
             }}
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/75 to-emerald-900/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/80 via-[#2d2d2d]/80 to-[#1a1a1a]/80" />
         </div>
 
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
             {/* Content Column */}
             <div className="lg:col-span-7 text-center lg:text-left">
-              <Badge className="mb-6 bg-emerald-600 hover:bg-emerald-700 text-white border-0 px-4 py-2 text-sm font-medium">
+              <Badge className="mb-4 sm:mb-6 text-white border-0 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium">
                 Sobre Nosotros
               </Badge>
 
-              <h1 className="font-montserrat font-heavy text-4xl sm:text-5xl lg:text-6xl xl:text-7xl mb-6 leading-[1.1] text-white">
+              <h1 className="font-montserrat font-heavy text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 leading-[1.1] text-white">
                 Transformando la
                 <span className="block text-transparent bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text">
                   Selva Central
                 </span>
               </h1>
 
-              <p className="font-montserrat font-regular text-xl sm:text-2xl text-gray-200 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="font-montserrat font-regular text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0">
                 Con más de 14 años de experiencia, ISI Perú lidera el desarrollo
                 inmobiliario sostenible, integrando comunidades y transformando
                 territorios.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 items-center lg:items-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center lg:items-start">
                 <div className="flex items-center gap-2 text-gray-300">
                   <div className="h-2 w-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <span className="text-sm font-medium">
+                  <span className="text-xs sm:text-sm font-medium">
                     Activos desde 2010
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-300">
                   <div className="h-2 w-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <span className="text-sm font-medium">
+                  <span className="text-xs sm:text-sm font-medium">
                     6 Proyectos Exitosos
                   </span>
                 </div>
@@ -70,38 +61,38 @@ export default function NosotrosPage() {
             </div>
 
             {/* Stats Column */}
-            <div className="lg:col-span-5 mt-8 lg:mt-0">
+            <div className="lg:col-span-5 mt-6 lg:mt-0">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-emerald-500/20 rounded-3xl blur-xl" />
-                <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-6 lg:p-8 border border-white/20 shadow-2xl">
-                  <h3 className="text-lg font-semibold text-white mb-6 text-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-emerald-500/20 rounded-2xl sm:rounded-3xl blur-xl" />
+                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 shadow-2xl">
+                  <h3 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 text-center">
                     Nuestros Números
                   </h3>
 
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:bg-white/20 transition-all duration-300">
-                      <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="bg-white/15 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-white/10 hover:bg-white/20 transition-all duration-300">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
                         14+
                       </div>
-                      <div className="text-sm text-gray-300">
+                      <div className="text-xs sm:text-sm text-gray-300">
                         Años de Experiencia
                       </div>
                     </div>
-                    <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10 hover:bg-white/20 transition-all duration-300">
-                      <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
+                    <div className="bg-white/15 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-white/10 hover:bg-white/20 transition-all duration-300">
+                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
                         6
                       </div>
-                      <div className="text-sm text-gray-300">
+                      <div className="text-xs sm:text-sm text-gray-300">
                         Proyectos Realizados
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-r from-emerald-600/30 to-emerald-500/30 backdrop-blur-sm rounded-xl p-4 text-center border border-emerald-400/30">
-                    <div className="text-3xl lg:text-4xl font-bold text-white mb-1">
+                  <div className="bg-gradient-to-r from-emerald-600/30 to-emerald-500/30 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-emerald-400/30">
+                    <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
                       90%
                     </div>
-                    <div className="text-sm text-gray-300">
+                    <div className="text-xs sm:text-sm text-gray-300">
                       del sector es informal
                     </div>
                     <div className="text-xs text-gray-400 mt-1">según CCL</div>
@@ -114,99 +105,250 @@ export default function NosotrosPage() {
       </section>
 
       {/* Company Overview */}
-      <section className="py-16 lg:py-24 bg-white relative overflow-hidden  bg-green-diagonal-alt">
+      <section className="py-8 sm:py-12 lg:py-16 bg-white bg-green-diagonal-alt text-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-emerald-100/50" />
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Quiénes Somos
-            </h2>
-            <p className="text-lg text-gray-600  mx-auto leading-relaxed">
-              Integración Social Inmobiliaria (I.S.I. Perú) es una empresa
-              innovadora que se dedica a conectar personas naturales y jurídicas
-              en el sector inmobiliario. Nos especializamos en brindar
-              soluciones completas y especializadas en consultoría, asistencia,
-              compraventa y desarrollo de proyectos inmobiliarios, asegurando
-              procesos transparentes y eficientes. Nuestro enfoque está en
-              fortalecer a nuestros clientes con herramientas y conocimientos
-              para transformar sus aspiraciones inmobiliarias en realidades
-              sólidas y rentables.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                title: "Nuestro Contexto",
-                content:
-                  "Según la CCL, más del 90% del crecimiento del sector inmobiliario es informal, generando desconfianza y afectando la seguridad jurídica. Trabajamos en todos los procesos para beneficiar directa e indirectamente al sector en la Selva Central.",
-                icon: "📊",
-              },
-              {
-                title: "Misión",
-                content:
-                  "Integrar a personas y organizaciones del sector inmobiliario, brindando soluciones integrales con un equipo calificado, para asegurar efectividad, competitividad y desarrollo sostenible.",
-                icon: "🎯",
-              },
-              {
-                title: "Visión",
-                content:
-                  "Ser la organización líder del país, con alianzas estratégicas que destaquen por calidad e innovación, generando valor para nuestros grupos de interés.",
-                icon: "🌟",
-              },
-            ].map((item, index) => (
-              <div
-                key={item.title}
-                className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
+            {/* Cards Carousel */}
+            <div className="relative order-2 lg:order-1">
+              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl border border-gray-100 p-6 sm:p-8">
+                <div className="text-center mb-6 sm:mb-8">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                    Nuestra Identidad
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600">
+                    Conoce los pilares que nos definen
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-gray-700 leading-relaxed">{item.content}</p>
+
+                <div className="space-y-4 sm:space-y-6">
+                  {[
+                    {
+                      title: "Nuestro Contexto",
+                      content:
+                        "Según la CCL, más del 90% del crecimiento del sector inmobiliario es informal, generando desconfianza y afectando la seguridad jurídica.",
+                      icon: "📊",
+                      color: "emerald",
+                    },
+                    {
+                      title: "Misión",
+                      content:
+                        "Integrar a personas y organizaciones del sector inmobiliario, brindando soluciones integrales con un equipo calificado.",
+                      icon: "🎯",
+                      color: "blue",
+                    },
+                    {
+                      title: "Visión",
+                      content:
+                        "Ser la organización líder del país, con alianzas estratégicas que destaquen por calidad e innovación.",
+                      icon: "🌟",
+                      color: "purple",
+                    },
+                  ].map((item, index) => (
+                    <div
+                      key={item.title}
+                      className={`p-4 sm:p-6 bg-${item.color}-50 rounded-xl sm:rounded-2xl border border-${item.color}-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
+                    >
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div>
+                          <h4 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">
+                            {item.title}
+                          </h4>
+                          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                            {item.content}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+            </div>
+
+            {/* Content */}
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">
+                Quiénes Somos
+              </h2>
+              <p className="text-lg sm:text-xl text-slate-700 mb-8 sm:mb-12 leading-relaxed">
+                Integración Social Inmobiliaria (I.S.I. Perú) es una empresa
+                innovadora que se dedica a conectar personas naturales y
+                jurídicas en el sector inmobiliario. Nos especializamos en
+                brindar soluciones completas y especializadas en consultoría,
+                asistencia, compraventa y desarrollo de proyectos inmobiliarios.
+              </p>
+
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-600 to-emerald-500 rounded-lg sm:rounded-xl flex items-center justify-center">
+                    <span className="text-lg sm:text-2xl">🏗️</span>
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-2">
+                      Desarrollo Sostenible
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-700">
+                      Transformamos territorios creando oportunidades para las
+                      comunidades locales con un enfoque en la sostenibilidad.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg sm:rounded-xl flex items-center justify-center">
+                    <span className="text-lg sm:text-2xl">🤝</span>
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-2">
+                      Integración Social
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-700">
+                      Conectamos personas y organizaciones para fortalecer el
+                      sector inmobiliario de manera colaborativa.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3 sm:space-x-4">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-600 to-purple-500 rounded-lg sm:rounded-xl flex items-center justify-center">
+                    <span className="text-lg sm:text-2xl">⚡</span>
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold text-slate-900 mb-2">
+                      Innovación Constante
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-700">
+                      Adoptamos mecanismos de inteligencia artificial y
+                      tecnologías avanzadas para optimizar nuestros procesos.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* History Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-gray-900 to-slate-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,theme(colors.emerald.500)_0%,transparent_70%)]" />
-        </div>
-
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] text-white relative overflow-hidden">
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Nuestra Historia
-              </h2>
-              <div className="space-y-6">
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  ISI nace a partir de Prodevidas y es liderada por
-                  <span className="text-emerald-400 font-semibold">
-                    {" "}
-                    Mario Félix Mendoza Aguirre
-                  </span>
-                  .
-                </p>
-                <p className="text-lg text-gray-400 leading-relaxed">
-                  Desde 2010 impulsamos habilitaciones urbanas y colocación de
-                  lotes en la Selva Central del Perú, transformando territorios
-                  y creando oportunidades para las comunidades locales.
-                </p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="space-y-6 sm:space-y-8">
+              <div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">
+                  Nuestra Historia
+                </h2>
+                <div className="space-y-4 sm:space-y-6">
+                  <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+                    ISI nace a partir de Prodevidas y es liderada por
+                    <span className="text-emerald-400 font-semibold">
+                      {" "}
+                      Mario Félix Mendoza Aguirre
+                    </span>
+                    .
+                  </p>
+                  <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
+                    Desde 2010 impulsamos habilitaciones urbanas y colocación de
+                    lotes en la Selva Central del Perú, transformando
+                    territorios y creando oportunidades para las comunidades
+                    locales.
+                  </p>
+                </div>
+              </div>
+
+              {/* Timeline de hitos importantes */}
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-lg sm:text-xl font-semibold text-emerald-400 mb-3 sm:mb-4">
+                  Hitos Importantes
+                </h3>
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-emerald-300 font-semibold text-sm sm:text-base">
+                        2010
+                      </span>
+                      <span className="text-gray-300 ml-2 text-sm sm:text-base">
+                        Fundación de ISI Perú
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-emerald-300 font-semibold text-sm sm:text-base">
+                        2015
+                      </span>
+                      <span className="text-gray-300 ml-2 text-sm sm:text-base">
+                        Primer proyecto: Esperanza de Vida I
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-emerald-300 font-semibold text-sm sm:text-base">
+                        2020
+                      </span>
+                      <span className="text-gray-300 ml-2 text-sm sm:text-base">
+                        Expansión a Mazamari
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-emerald-300 font-semibold text-sm sm:text-base">
+                        2024
+                      </span>
+                      <span className="text-gray-300 ml-2 text-sm sm:text-base">
+                        Proyecto Ecovida en desarrollo
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Valores y principios */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-6 border border-white/10">
+                <h3 className="text-base sm:text-lg font-semibold text-emerald-400 mb-3 sm:mb-4">
+                  Nuestros Principios
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs sm:text-sm text-gray-300">
+                      Transparencia
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs sm:text-sm text-gray-300">
+                      Sostenibilidad
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs sm:text-sm text-gray-300">
+                      Innovación
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                    <span className="text-xs sm:text-sm text-gray-300">
+                      Comunidad
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold mb-8 text-center text-white">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20">
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center text-white">
                 Proyectos Realizados
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {[
                   {
                     name: "Esperanza de Vida I Etapa",
@@ -241,21 +383,21 @@ export default function NosotrosPage() {
                 ].map((proyecto, index) => (
                   <div
                     key={proyecto.name}
-                    className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300"
+                    className="flex items-center justify-between p-3 sm:p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 bg-emerald-400 rounded-full flex-shrink-0" />
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full flex-shrink-0" />
                       <div>
-                        <div className="font-semibold text-white">
+                        <div className="font-semibold text-white text-sm sm:text-base">
                           {proyecto.name}
                         </div>
-                        <div className="text-sm text-gray-400">
+                        <div className="text-xs sm:text-sm text-gray-400">
                           {proyecto.location}
                         </div>
                       </div>
                     </div>
                     <span
-                      className={`px-3 py-1 text-xs font-medium rounded-full ${
+                      className={`px-2 sm:px-3 py-1 text-xs font-medium rounded-full ${
                         proyecto.status === "Completado"
                           ? "bg-green-600/30 text-green-300 border border-green-500/30"
                           : "bg-blue-600/30 text-blue-300 border border-blue-500/30"
@@ -272,149 +414,210 @@ export default function NosotrosPage() {
       </section>
 
       {/* Services & Advantages */}
-      <section className="py-16 lg:py-24 bg-gray-50 bg-green-diagonal-alt">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gray-50 bg-green-diagonal-alt">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               Cómo Trabajamos
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
               Ofrecemos múltiples formas de integración y un conjunto completo
               de servicios para el desarrollo inmobiliario sostenible.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Column */}
-            <div className="space-y-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Objetivos Estratégicos
-                </h3>
-                <ul className="space-y-4">
-                  {[
-                    "Integrar organizaciones y dotar de conocimientos, servicios y materiales.",
-                    "Fortalecer al emprendedor en su proyección empresarial inmobiliaria.",
-                    "Impulsar asociaciones y empresas para proyectos de gran envergadura.",
-                    "Ser reconocidos por nuestra trayectoria en el rubro inmobiliario.",
-                    "Lograr acreditaciones y avalar a los integrados a la ISI.",
-                  ].map((objetivo, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-emerald-600 rounded-full" />
-                      </div>
-                      <span className="text-gray-700 leading-relaxed">
-                        {objetivo}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Modalidades de Integración
-                </h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {["Afiliado", "Accionista", "Inversionista"].map(
-                    (modalidad) => (
-                      <div
-                        key={modalidad}
-                        className="text-center p-4 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl border border-emerald-100"
-                      >
-                        <div className="text-lg font-semibold text-emerald-800 mb-1">
-                          {modalidad}
-                        </div>
-                      </div>
-                    )
-                  )}
-                </div>
+          {/* Tabs Navigation */}
+          <div className="flex justify-center mb-6 sm:mb-8">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-1 sm:p-2 shadow-lg border border-gray-200">
+              <div className="flex space-x-1">
+                {[
+                  { id: "objetivos", label: "Objetivos", icon: "🎯" },
+                  { id: "ventajas", label: "Ventajas", icon: "⭐" },
+                  { id: "areas", label: "Áreas", icon: "🏗️" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-medium transition-all duration-300 text-sm sm:text-base ${
+                      activeTab === tab.id
+                        ? "bg-emerald-500 text-white shadow-lg transform scale-105"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                    }`}
+                  >
+                    <span className="text-base sm:text-lg">{tab.icon}</span>
+                    <span className="hidden sm:inline">{tab.label}</span>
+                  </button>
+                ))}
               </div>
             </div>
+          </div>
 
-            {/* Right Column */}
-            <div className="space-y-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Nuestras Ventajas
-                </h3>
-                <ul className="space-y-4">
-                  {[
-                    "Equipo de profesionales altamente capacitados.",
-                    "Respaldo económico y participación de personas naturales y jurídicas.",
-                    "Oficina central con condiciones acordes a la demanda.",
-                    "Realización de negocios cruzados.",
-                    "Adopción de mecanismos de inteligencia artificial.",
-                    "Respaldo institucional sólido.",
-                  ].map((ventaja, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                      </div>
-                      <span className="text-gray-700 leading-relaxed">
-                        {ventaja}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Áreas de Trabajo
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {[
-                    "Ventas y Servicios",
-                    "Consolidación Empresarial",
-                    "Marketing",
-                    "Asesoría Legal y Saneamiento de Predios",
-                  ].map((area) => (
-                    <div
-                      key={area}
-                      className="p-4 bg-gradient-to-br from-gray-50 to-slate-50 rounded-xl border border-gray-200 text-center"
-                    >
-                      <div className="font-semibold text-gray-800">{area}</div>
+          {/* Tab Content */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl border border-gray-100 overflow-hidden">
+              {/* Objetivos Estratégicos Tab */}
+              {activeTab === "objetivos" && (
+                <div className="p-6 sm:p-8 min-h-[400px] sm:min-h-[500px] flex flex-col">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-emerald-100 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                      <span className="text-2xl sm:text-3xl">🎯</span>
                     </div>
-                  ))}
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                        Objetivos Estratégicos
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-600">
+                        Nuestra hoja de ruta hacia el éxito
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6 flex-1">
+                    {[
+                      "Integrar organizaciones y dotar de conocimientos, servicios y materiales.",
+                      "Fortalecer al emprendedor en su proyección empresarial inmobiliaria.",
+                      "Impulsar asociaciones y empresas para proyectos de gran envergadura.",
+                      "Ser reconocidos por nuestra trayectoria en el rubro inmobiliario.",
+                      "Lograr acreditaciones y avalar a los integrados a la ISI.",
+                    ].map((objetivo, index) => (
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 p-3 sm:p-4 bg-emerald-50 rounded-lg sm:rounded-xl border border-emerald-100"
+                      >
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-xs sm:text-sm">
+                            {index + 1}
+                          </span>
+                        </div>
+                        <span className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+                          {objetivo}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
+
+              {/* Nuestras Ventajas Tab */}
+              {activeTab === "ventajas" && (
+                <div className="p-6 sm:p-8 min-h-[400px] sm:min-h-[500px] flex flex-col">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                      <span className="text-2xl sm:text-3xl">⭐</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                        Nuestras Ventajas
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-600">
+                        Lo que nos hace únicos
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6 flex-1">
+                    {[
+                      "Equipo de profesionales altamente capacitados.",
+                      "Respaldo económico y participación de personas naturales y jurídicas.",
+                      "Oficina central con condiciones acordes a la demanda.",
+                      "Realización de negocios cruzados.",
+                      "Adopción de mecanismos de inteligencia artificial.",
+                      "Respaldo institucional sólido.",
+                    ].map((ventaja, index) => (
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 p-3 sm:p-4 bg-purple-50 rounded-lg sm:rounded-xl border border-purple-100"
+                      >
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-white font-bold text-xs sm:text-sm">
+                            ✓
+                          </span>
+                        </div>
+                        <span className="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+                          {ventaja}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Áreas de Trabajo Tab */}
+              {activeTab === "areas" && (
+                <div className="p-6 sm:p-8 min-h-[400px] sm:min-h-[500px] flex flex-col">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                      <span className="text-2xl sm:text-3xl">🏗️</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                        Áreas de Trabajo
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-600">
+                        Especialidades que dominamos
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4 sm:gap-6 flex-1">
+                    {[
+                      {
+                        name: "Ventas y Servicios",
+                        icon: "💼",
+                        desc: "Comercialización integral de propiedades",
+                      },
+                      {
+                        name: "Consolidación Empresarial",
+                        icon: "🏢",
+                        desc: "Fortalecimiento de emprendedores",
+                      },
+                      {
+                        name: "Marketing",
+                        icon: "📢",
+                        desc: "Estrategias digitales y tradicionales",
+                      },
+                      {
+                        name: "Asesoría Legal",
+                        icon: "⚖️",
+                        desc: "Saneamiento y titulación de predios",
+                      },
+                    ].map((area) => (
+                      <div
+                        key={area.name}
+                        className="p-4 sm:p-6 bg-orange-50 rounded-xl sm:rounded-2xl border border-orange-200 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                      >
+                        <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
+                          {area.icon}
+                        </div>
+                        <div className="font-bold text-gray-900 text-base sm:text-lg mb-2">
+                          {area.name}
+                        </div>
+                        <div className="text-sm sm:text-base text-gray-600">
+                          {area.desc}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 lg:py-24 bg-white bg-green-diagonal">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-400 mb-3 sm:mb-4">
               Nuestros Aliados Estratégicos
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-white max-w-2xl mx-auto">
               Trabajamos en colaboración con instituciones clave para garantizar
               el éxito de nuestros proyectos.
             </p>
           </div>
 
-          <div className="flex justify-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl">
-              {[
-                { name: "Notarías", icon: "📋" },
-                { name: "Municipalidades", icon: "🏛️" },
-                { name: "SUNARP", icon: "🏢" },
-                { name: "Empresas", icon: "🤝" },
-              ].map((aliado) => (
-                <div
-                  key={aliado.name}
-                  className="text-center p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl border border-emerald-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="text-4xl mb-4">{aliado.icon}</div>
-                  <div className="font-semibold text-gray-900">
-                    {aliado.name}
-                  </div>
-                </div>
-              ))}
+          <div className="container mx-auto px-4 mt-8 sm:mt-12 md:mt-16">
+            <div className="rounded-xl sm:rounded-2xl bg-white py-3 sm:py-4 px-2 border border-emerald-200 shadow-lg">
+              <AlliesCarousel />
             </div>
           </div>
         </div>

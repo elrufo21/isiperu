@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Favicon - ISI Perú</title>
+</head>
+<body>
+    <h1>Configuración de Favicon para ISI Perú</h1>
+    
+    <h2>Archivos Necesarios:</h2>
+    <ul>
+        <li><strong>favicon.ico</strong> - Icono principal (16x16, 32x32, 48x48)</li>
+        <li><strong>favicon-16x16.png</strong> - Versión PNG 16x16</li>
+        <li><strong>favicon-32x32.png</strong> - Versión PNG 32x32</li>
+        <li><strong>apple-touch-icon.png</strong> - Icono para iOS (180x180)</li>
+        <li><strong>icon-512x512.png</strong> - Icono grande para PWA</li>
+        <li><strong>safari-pinned-tab.svg</strong> - Icono para Safari (opcional)</li>
+    </ul>
+    
+    <h2>Configuración HTML (ya implementada en layout.tsx):</h2>
+    <pre>
+&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#20B266"&gt;
+    </pre>
+    
+    <h2>Notas Importantes:</h2>
+    <ul>
+        <li>El favicon.ico debe contener múltiples tamaños (16x16, 32x32, 48x48)</li>
+        <li>Los archivos PNG deben tener exactamente los tamaños especificados</li>
+        <li>Google puede tardar días en actualizar el favicon en los resultados de búsqueda</li>
+        <li>Usar colores que contrasten bien con fondos claros y oscuros</li>
+    </ul>
+</body>
+</html>

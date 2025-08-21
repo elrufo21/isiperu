@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ISIPERU - Inmobiliaria en Lima, Perú",
+  title: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
   description:
-    "Encuentra las mejores propiedades en Lima, Perú. Casas, departamentos y terrenos en las mejores ubicaciones. ISIPERU, tu socio inmobiliario de confianza.",
+    "Encuentra las mejores propiedades en la Selva Central, Perú. Casas, departamentos y terrenos en las mejores ubicaciones. ISIPERU, tu socio inmobiliario de confianza.",
   keywords:
-    "inmobiliaria, propiedades, casas, departamentos, Lima, Perú, ISIPERU",
+    "inmobiliaria, propiedades, casas, departamentos, Selva Central, Perú, ISIPERU",
   authors: [{ name: "ISIPERU" }],
   creator: "ISIPERU",
   publisher: "ISIPERU",
@@ -35,10 +35,24 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#20B266" },
+    ],
+  },
   openGraph: {
-    title: "ISIPERU - Inmobiliaria en Lima, Perú",
+    title: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
     description:
-      "Encuentra las mejores propiedades en Lima, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
+      "Encuentra las mejores propiedades en la Selva Central, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
     url: "https://isiperu.com",
     siteName: "ISIPERU",
     images: [
@@ -46,7 +60,7 @@ export const metadata: Metadata = {
         url: "/hero.png",
         width: 1200,
         height: 630,
-        alt: "ISIPERU - Inmobiliaria en Lima, Perú",
+        alt: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
       },
     ],
     locale: "es_PE",
@@ -54,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ISIPERU - Inmobiliaria en Lima, Perú",
+    title: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
     description:
-      "Encuentra las mejores propiedades en Lima, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
+      "Encuentra las mejores propiedades en la Selva Central, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
     images: ["/hero.png"],
   },
   robots: {
