@@ -34,6 +34,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import AlliesCarousel from "@/components/AlliesCarousel/AlliesCarousel";
+import ProjectModal from "./components/ProjectModal";
 
 export default function ISIPeruHomepage() {
   const [formData, setFormData] = useState({
@@ -45,6 +46,17 @@ export default function ISIPeruHomepage() {
   });
 
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedProject, setSelectedProject] = useState<{
+    id: string;
+    titulo: string;
+    ubicacion: string;
+    estado: string;
+    tipo: string;
+    imagen: string;
+    caracteristicas: string[];
+    destacado: boolean;
+  } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -63,6 +75,16 @@ export default function ISIPeruHomepage() {
     // Aquí se manejaría el envío del formulario
     console.log("Formulario enviado:", formData);
     alert("¡Gracias por tu consulta! Te contactaremos pronto.");
+  };
+
+  const handleOpenModal = (proyecto: (typeof proyectosCompletados)[0]) => {
+    setSelectedProject(proyecto);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
   };
 
   // Estadísticas reales de ISI
@@ -538,15 +560,8 @@ export default function ISIPeruHomepage() {
           </div>
 
           <div className="relative">
-            {/* Navigation Buttons */}
-            <div className="absolute top-1/2 -translate-y-1/2 left-4 z-20">
-              <button
-                onClick={() => handlePrevSlide()}
-                className="group w-12 h-12 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center border border-white/20 hover:bg-white/20 transition-all duration-300"
-              >
-                <ChevronLeft className="w-6 h-6 text-white group-hover:text-emerald-400 transition-colors" />
-              </button>
-            </div>
+            {/* Navigation Buttons 
+            <div className="absolute top-1/2 -translate-y-1/2 left-4 z-20"> </div>
 
             <div className="absolute top-1/2 -translate-y-1/2 right-4 z-20">
               <button
@@ -555,7 +570,7 @@ export default function ISIPeruHomepage() {
               >
                 <ChevronRight className="w-6 h-6 text-white group-hover:text-emerald-400 transition-colors" />
               </button>
-            </div>
+            </div>*/}
 
             {/* Custom Carousel */}
             <div className="overflow-hidden">
@@ -646,7 +661,10 @@ export default function ISIPeruHomepage() {
                               </div>
 
                               <div className="flex items-center justify-between">
-                                <button className="text-emerald-400 hover:text-emerald-300 font-semibold text-xs transition-colors">
+                                <button
+                                  onClick={() => handleOpenModal(proyecto)}
+                                  className="text-emerald-400 hover:text-emerald-300 font-semibold text-xs transition-colors"
+                                >
                                   Ver detalles
                                 </button>
                                 <div className="flex space-x-1">
@@ -977,6 +995,13 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Aliados Section (tira) */}
+
+      {/* Project Modal */}
+      <ProjectModal
+        proyecto={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }

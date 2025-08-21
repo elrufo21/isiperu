@@ -112,54 +112,56 @@ export default function ContactoForm() {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-200 relative overflow-hidden">
+    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 relative overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-emerald-400/10 rounded-full blur-2xl" />
+      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-500/10 to-emerald-400/10 rounded-full blur-xl" />
 
       <div className="relative z-10">
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <Send className="w-8 h-8 text-white" />
+        <div className="text-center mb-6">
+          <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <Send className="w-6 h-6 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">
+          <h2 className="text-xl font-bold text-slate-900 mb-2">
             Envíanos un Mensaje
           </h2>
-          <p className="text-slate-600">
+          <p className="text-sm text-slate-600">
             Completa el formulario y te contactaremos pronto
           </p>
         </div>
 
         {submitStatus === "success" && (
-          <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center space-x-3">
-            <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0" />
+          <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center space-x-2">
+            <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
             <div className="text-emerald-700">
-              <p className="font-medium">¡Mensaje enviado exitosamente!</p>
-              <p className="text-sm">Te contactaremos pronto.</p>
+              <p className="font-medium text-sm">
+                ¡Mensaje enviado exitosamente!
+              </p>
+              <p className="text-xs">Te contactaremos pronto.</p>
             </div>
           </div>
         )}
 
         {submitStatus === "error" && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center space-x-3">
-            <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
+          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2">
+            <AlertCircle className="w-4 h-4 text-red-500 flex-shrink-0" />
             <div className="text-red-700">
-              <p className="font-medium">Error al enviar el mensaje</p>
-              <p className="text-sm">Por favor, inténtalo nuevamente.</p>
+              <p className="font-medium text-sm">Error al enviar el mensaje</p>
+              <p className="text-xs">Por favor, inténtalo nuevamente.</p>
             </div>
           </div>
         )}
 
-        <form onSubmit={onSubmit} className="space-y-6">
+        <form onSubmit={onSubmit} className="space-y-4">
           {/* Name Input */}
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-slate-700 mb-2"
+              className="block text-xs font-medium text-slate-700 mb-1"
             >
               Nombre Completo *
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
                 id="name"
                 type="text"
@@ -167,7 +169,7 @@ export default function ContactoForm() {
                 placeholder="Tu nombre completo"
                 value={formData.name}
                 onChange={onChange}
-                className={`w-full pl-11 pr-4 py-3 rounded-xl border transition-all duration-300 focus:outline-none focus:ring-2 ${
+                className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 text-sm ${
                   errors.name
                     ? "border-red-300 focus:border-red-500 focus:ring-red-200"
                     : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
@@ -176,97 +178,100 @@ export default function ContactoForm() {
               />
             </div>
             {errors.name && (
-              <p className="mt-1 text-sm text-red-600 flex items-center">
-                <AlertCircle className="w-4 h-4 mr-1" />
+              <p className="mt-1 text-xs text-red-600 flex items-center">
+                <AlertCircle className="w-3 h-3 mr-1" />
                 {errors.name}
               </p>
             )}
           </div>
 
-          {/* Email Input */}
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-slate-700 mb-2"
-            >
-              Correo Electrónico *
-            </label>
-            <div className="relative">
-              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="tu@email.com"
-                value={formData.email}
-                onChange={onChange}
-                className={`w-full pl-11 pr-4 py-3 rounded-xl border transition-all duration-300 focus:outline-none focus:ring-2 ${
-                  errors.email
-                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                    : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
-                } placeholder-gray-400`}
-                disabled={isSubmitting}
-              />
+          {/* Email and Phone in same row for larger screens */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {/* Email Input */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-xs font-medium text-slate-700 mb-1"
+              >
+                Email *
+              </label>
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="tu@email.com"
+                  value={formData.email}
+                  onChange={onChange}
+                  className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 text-sm ${
+                    errors.email
+                      ? "border-red-300 focus:border-red-500 focus:ring-red-200"
+                      : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
+                  } placeholder-gray-400`}
+                  disabled={isSubmitting}
+                />
+              </div>
+              {errors.email && (
+                <p className="mt-1 text-xs text-red-600 flex items-center">
+                  <AlertCircle className="w-3 h-3 mr-1" />
+                  {errors.email}
+                </p>
+              )}
             </div>
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-600 flex items-center">
-                <AlertCircle className="w-4 h-4 mr-1" />
-                {errors.email}
-              </p>
-            )}
-          </div>
 
-          {/* Phone Input */}
-          <div>
-            <label
-              htmlFor="phone"
-              className="block text-sm font-medium text-slate-700 mb-2"
-            >
-              Teléfono *
-            </label>
-            <div className="relative">
-              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
-              <input
-                id="phone"
-                type="tel"
-                name="phone"
-                placeholder="999 000 000"
-                value={formData.phone}
-                onChange={onChange}
-                className={`w-full pl-11 pr-4 py-3 rounded-xl border transition-all duration-300 focus:outline-none focus:ring-2 ${
-                  errors.phone
-                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                    : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
-                } placeholder-gray-400`}
-                disabled={isSubmitting}
-              />
+            {/* Phone Input */}
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-xs font-medium text-slate-700 mb-1"
+              >
+                Teléfono *
+              </label>
+              <div className="relative">
+                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  placeholder="999 000 000"
+                  value={formData.phone}
+                  onChange={onChange}
+                  className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 text-sm ${
+                    errors.phone
+                      ? "border-red-300 focus:border-red-500 focus:ring-red-200"
+                      : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
+                  } placeholder-gray-400`}
+                  disabled={isSubmitting}
+                />
+              </div>
+              {errors.phone && (
+                <p className="mt-1 text-xs text-red-600 flex items-center">
+                  <AlertCircle className="w-3 h-3 mr-1" />
+                  {errors.phone}
+                </p>
+              )}
             </div>
-            {errors.phone && (
-              <p className="mt-1 text-sm text-red-600 flex items-center">
-                <AlertCircle className="w-4 h-4 mr-1" />
-                {errors.phone}
-              </p>
-            )}
           </div>
 
           {/* Message Input */}
           <div>
             <label
               htmlFor="message"
-              className="block text-sm font-medium text-slate-700 mb-2"
+              className="block text-xs font-medium text-slate-700 mb-1"
             >
               Mensaje *
             </label>
             <div className="relative">
-              <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-slate-400" />
+              <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
               <textarea
                 id="message"
                 name="message"
                 placeholder="Cuéntanos sobre tu proyecto inmobiliario..."
-                rows={4}
+                rows={3}
                 value={formData.message}
                 onChange={onChange}
-                className={`w-full pl-11 pr-4 py-3 rounded-xl border transition-all duration-300 focus:outline-none focus:ring-2 resize-none ${
+                className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 resize-none text-sm ${
                   errors.message
                     ? "border-red-300 focus:border-red-500 focus:ring-red-200"
                     : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
@@ -275,8 +280,8 @@ export default function ContactoForm() {
               />
             </div>
             {errors.message && (
-              <p className="mt-1 text-sm text-red-600 flex items-center">
-                <AlertCircle className="w-4 h-4 mr-1" />
+              <p className="mt-1 text-xs text-red-600 flex items-center">
+                <AlertCircle className="w-3 h-3 mr-1" />
                 {errors.message}
               </p>
             )}
@@ -286,27 +291,27 @@ export default function ContactoForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center space-x-2 ${
+            className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center space-x-2 ${
               isSubmitting
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 hover:shadow-lg hover:shadow-emerald-200/50 active:scale-[0.98]"
+                : "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 hover:shadow-md hover:shadow-emerald-200/50 active:scale-[0.98]"
             }`}
           >
             {isSubmitting ? (
               <>
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                <span>Enviando...</span>
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                <span className="text-sm">Enviando...</span>
               </>
             ) : (
               <>
-                <Send className="w-5 h-5" />
-                <span>Enviar Mensaje</span>
+                <Send className="w-4 h-4" />
+                <span className="text-sm">Enviar Mensaje</span>
               </>
             )}
           </button>
 
           {/* Privacy Notice */}
-          <p className="text-xs text-slate-500 text-center">
+          <p className="text-xs text-slate-500 text-center leading-tight">
             Al enviar este formulario, aceptas que ISI Perú se comunique contigo
             para brindarte información sobre nuestros servicios inmobiliarios.
           </p>

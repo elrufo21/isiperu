@@ -40,6 +40,7 @@ export const metadata: Metadata = {
       { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
     apple: [
@@ -47,6 +48,12 @@ export const metadata: Metadata = {
     ],
     other: [
       { rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#20B266" },
+      {
+        rel: "icon",
+        url: "/icon-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
   },
   openGraph: {
@@ -87,6 +94,11 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
+  other: {
+    "msapplication-TileColor": "#20B266",
+    "msapplication-TileImage": "/icon-512x512.png",
+    "theme-color": "#20B266",
+  },
 };
 
 export default function RootLayout({
@@ -97,6 +109,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <meta name="msapplication-config" content="/browserconfig.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
