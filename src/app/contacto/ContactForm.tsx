@@ -1,322 +1,189 @@
 "use client";
 
-import React from "react";
 import {
-  Send,
-  User,
-  Mail,
-  Phone,
-  MessageSquare,
   CheckCircle,
-  AlertCircle,
+  DollarSign,
+  Mail,
+  TrendingUp,
+  UserCheck,
 } from "lucide-react";
-
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  phone?: string;
-  message?: string;
-}
+import React, { useState } from "react";
 
 export default function ContactoForm() {
-  const [formData, setFormData] = React.useState<FormData>({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    service: "",
     message: "",
   });
-
-  const [errors, setErrors] = React.useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [submitStatus, setSubmitStatus] = React.useState<
-    "idle" | "success" | "error"
-  >("idle");
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = "El nombre es requerido";
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = "El nombre debe tener al menos 2 caracteres";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "El email es requerido";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Ingresa un email válido";
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = "El teléfono es requerido";
-    } else if (!/^[0-9]{9}$/.test(formData.phone.replace(/\s/g, ""))) {
-      newErrors.phone = "Ingresa un teléfono válido (9 dígitos)";
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "El mensaje es requerido";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "El mensaje debe tener al menos 10 caracteres";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  const modalidadesIntegracion = [
+    {
+      titulo: "Afiliado",
+      descripcion:
+        "Forma parte de nuestra red como afiliado y accede a beneficios exclusivos",
+      beneficios: [
+        "Comisiones competitivas",
+        "Capacitación continua",
+        "Soporte técnico",
+      ],
+      icono: UserCheck,
+    },
+    {
+      titulo: "Accionista",
+      descripcion:
+        "Invierte en nuestro crecimiento y participa en las decisiones estratégicas",
+      beneficios: ["Dividendos anuales", "Voz y voto", "Acceso prioritario"],
+      icono: TrendingUp,
+    },
+    {
+      titulo: "Inversionista",
+      descripcion: "Participa en proyectos específicos con retornos atractivos",
+      beneficios: [
+        "ROI competitivo",
+        "Diversificación",
+        "Asesoría especializada",
+      ],
+      icono: DollarSign,
+    },
+  ];
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
+    const { name, value } = e.target as HTMLInputElement;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
-
-  const onSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", phone: "", message: "" });
-
-      setTimeout(() => {
-        setSubmitStatus("idle");
-      }, 5000);
-    } catch (error) {
-      setSubmitStatus("error");
-      setTimeout(() => {
-        setSubmitStatus("idle");
-      }, 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Aquí se manejaría el envío del formulario
+    console.log("Formulario enviado:", formData);
+    alert("¡Gracias por tu consulta! Te contactaremos pronto.");
   };
-
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-emerald-500/10 to-emerald-400/10 rounded-full blur-xl" />
-
-      <div className="relative z-10">
-        <div className="text-center mb-6">
-          <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-            <Send className="w-6 h-6 text-white" />
+    <section className="py-16   overflow-hidden ">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+          <div>
+            <div className="mb-8">
+              <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+                Únete a ISI Perú
+              </h2>
+              <p className="text-lg md:text-xl text-slate-900 max-w-3xl leading-relaxed">
+                Ofrecemos diferentes modalidades para que puedas integrarte a
+                nuestra organización según tus objetivos y capacidades de
+                inversión.
+              </p>
+            </div>
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+              {modalidadesIntegracion.map((modalidad, index) => (
+                <div
+                  key={index}
+                  className="group h-full flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 p-5 md:p-6 lg:p-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 md:min-h-[300px] lg:min-h-[340px]"
+                >
+                  <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-2xl mb-3 md:mb-4 group-hover:scale-110 transition-transform">
+                    <modalidad.icono className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {modalidad.titulo}
+                  </h3>
+                  <p className="text-white mb-3 leading-snug text-sm">
+                    {modalidad.descripcion}
+                  </p>
+                  <div className="space-y-1.5 mt-auto">
+                    {modalidad.beneficios.map((beneficio, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center text-[13px] md:text-sm text-white"
+                      >
+                        <CheckCircle className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0" />
+                        {beneficio}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <h2 className="text-xl font-bold text-slate-900 mb-2">
-            Envíanos un Mensaje
-          </h2>
-          <p className="text-sm text-slate-600">
-            Completa el formulario y te contactaremos pronto
-          </p>
+
+          {/* Right: Contact Form */}
+          <div className="relative">
+            <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 rounded-3xl p-8 border border-gray-200 shadow-2xl">
+              <div className="space-y-6">
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-emerald-400 mb-2">
+                    Contáctanos
+                  </h3>
+                  <p className="text-white">
+                    Inicia tu proyecto inmobiliario hoy
+                  </p>
+                </div>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Nombre completo"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Correo electrónico"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Teléfono"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                  />
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                  >
+                    <option value="">Servicio de interés</option>
+                    <option value="ventas">Ventas y Servicios</option>
+                    <option value="asesoria">Asesoría Legal</option>
+                    <option value="consolidacion">
+                      Consolidación Empresarial
+                    </option>
+                    <option value="marketing">Marketing</option>
+                  </select>
+                  <textarea
+                    name="message"
+                    placeholder="Mensaje"
+                    rows={3}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none"
+                  ></textarea>
+                  <button
+                    type="submit"
+                    className="w-full p-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg"
+                  >
+                    <Mail className="w-5 h-5 inline mr-2" />
+                    Enviar Consulta
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-
-        {submitStatus === "success" && (
-          <div className="mb-4 p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center space-x-2">
-            <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-            <div className="text-emerald-700">
-              <p className="font-medium text-sm">
-                ¡Mensaje enviado exitosamente!
-              </p>
-              <p className="text-xs">Te contactaremos pronto.</p>
-            </div>
-          </div>
-        )}
-
-        {submitStatus === "error" && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center space-x-2">
-            <AlertCircle className="w-4 h-4 text-red-500 flex-shrink-0" />
-            <div className="text-red-700">
-              <p className="font-medium text-sm">Error al enviar el mensaje</p>
-              <p className="text-xs">Por favor, inténtalo nuevamente.</p>
-            </div>
-          </div>
-        )}
-
-        <form onSubmit={onSubmit} className="space-y-4">
-          {/* Name Input */}
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-xs font-medium text-slate-700 mb-1"
-            >
-              Nombre Completo *
-            </label>
-            <div className="relative">
-              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
-              <input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Tu nombre completo"
-                value={formData.name}
-                onChange={onChange}
-                className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 text-sm ${
-                  errors.name
-                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                    : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
-                } placeholder-gray-400`}
-                disabled={isSubmitting}
-              />
-            </div>
-            {errors.name && (
-              <p className="mt-1 text-xs text-red-600 flex items-center">
-                <AlertCircle className="w-3 h-3 mr-1" />
-                {errors.name}
-              </p>
-            )}
-          </div>
-
-          {/* Email and Phone in same row for larger screens */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {/* Email Input */}
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-xs font-medium text-slate-700 mb-1"
-              >
-                Email *
-              </label>
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="tu@email.com"
-                  value={formData.email}
-                  onChange={onChange}
-                  className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 text-sm ${
-                    errors.email
-                      ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                      : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
-                  } placeholder-gray-400`}
-                  disabled={isSubmitting}
-                />
-              </div>
-              {errors.email && (
-                <p className="mt-1 text-xs text-red-600 flex items-center">
-                  <AlertCircle className="w-3 h-3 mr-1" />
-                  {errors.email}
-                </p>
-              )}
-            </div>
-
-            {/* Phone Input */}
-            <div>
-              <label
-                htmlFor="phone"
-                className="block text-xs font-medium text-slate-700 mb-1"
-              >
-                Teléfono *
-              </label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  id="phone"
-                  type="tel"
-                  name="phone"
-                  placeholder="999 000 000"
-                  value={formData.phone}
-                  onChange={onChange}
-                  className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 text-sm ${
-                    errors.phone
-                      ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                      : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
-                  } placeholder-gray-400`}
-                  disabled={isSubmitting}
-                />
-              </div>
-              {errors.phone && (
-                <p className="mt-1 text-xs text-red-600 flex items-center">
-                  <AlertCircle className="w-3 h-3 mr-1" />
-                  {errors.phone}
-                </p>
-              )}
-            </div>
-          </div>
-
-          {/* Message Input */}
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-xs font-medium text-slate-700 mb-1"
-            >
-              Mensaje *
-            </label>
-            <div className="relative">
-              <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Cuéntanos sobre tu proyecto inmobiliario..."
-                rows={3}
-                value={formData.message}
-                onChange={onChange}
-                className={`w-full pl-10 pr-3 py-2.5 rounded-lg border transition-all duration-300 focus:outline-none focus:ring-2 resize-none text-sm ${
-                  errors.message
-                    ? "border-red-300 focus:border-red-500 focus:ring-red-200"
-                    : "border-gray-300 focus:border-emerald-500 focus:ring-emerald-200"
-                } placeholder-gray-400`}
-                disabled={isSubmitting}
-              />
-            </div>
-            {errors.message && (
-              <p className="mt-1 text-xs text-red-600 flex items-center">
-                <AlertCircle className="w-3 h-3 mr-1" />
-                {errors.message}
-              </p>
-            )}
-          </div>
-
-          {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-300 flex items-center justify-center space-x-2 ${
-              isSubmitting
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 hover:shadow-md hover:shadow-emerald-200/50 active:scale-[0.98]"
-            }`}
-          >
-            {isSubmitting ? (
-              <>
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                <span className="text-sm">Enviando...</span>
-              </>
-            ) : (
-              <>
-                <Send className="w-4 h-4" />
-                <span className="text-sm">Enviar Mensaje</span>
-              </>
-            )}
-          </button>
-
-          {/* Privacy Notice */}
-          <p className="text-xs text-slate-500 text-center leading-tight">
-            Al enviar este formulario, aceptas que ISI Perú se comunique contigo
-            para brindarte información sobre nuestros servicios inmobiliarios.
-          </p>
-        </form>
       </div>
-    </div>
+    </section>
   );
 }

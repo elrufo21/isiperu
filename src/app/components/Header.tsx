@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { navigationConfig } from "../../data/navigation";
+import DropdownMenu from "./DropdownMenu";
+import MobileMenu from "./MobileMenu";
+import { NavigationItem } from "../../types/menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,29 +15,7 @@ const Header = () => {
 
   const pathname = usePathname();
 
-  const navItems = [
-    { href: "/", label: "Inicio", match: (p: string) => p === "/" },
-    /*{
-      href: "/propiedades",
-      label: "Propiedades",
-      match: (p: string) => p.startsWith("/propiedades"),
-    },
-    {
-      href: "/servicios",
-      label: "Servicios",
-      match: (p: string) => p.startsWith("/servicios"),
-    },*/
-    {
-      href: "/nosotros",
-      label: "Nosotros",
-      match: (p: string) => p.startsWith("/nosotros"),
-    },
-    {
-      href: "/contacto",
-      label: "Contacto",
-      match: (p: string) => p.startsWith("/contacto"),
-    },
-  ];
+  const navItems: NavigationItem[] = navigationConfig;
 
   const isActivePath = (test: (p: string) => boolean) => test(pathname ?? "");
   const toggleMenu = () => {
@@ -185,6 +167,18 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => {
               const active = isActivePath(item.match);
+
+              if (item.hasSubmenu) {
+                return (
+                  <DropdownMenu
+                    key={item.href}
+                    item={item}
+                    isActive={active}
+                    onClose={() => {}}
+                  />
+                );
+              }
+
               return (
                 <Link
                   key={item.href}
@@ -215,51 +209,12 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div
-          className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          } overflow-hidden`}
-        >
-          <nav className="pt-4 pb-2 border-t border-gray-100 mt-4">
-            <div className="flex flex-col space-y-3">
-              {navItems.map((item) => {
-                const active = isActivePath(item.match);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMenu}
-                    className={`font-montserrat font-regular py-2 px-3 rounded-md transition-colors duration-200 ${
-                      active
-                        ? "text-[#20B266] bg-gray-50"
-                        : "text-gray-700 hover:text-[#20B266] hover:bg-gray-50"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Mobile Contact Info */}
-            <div className="mt-4 pt-4 border-t border-gray-100">
-              <div className="flex flex-col space-y-2 text-sm text-gray-600">
-                <div className="flex items-center space-x-2">
-                  <Phone size={16} />
-                  <span className="font-montserrat font-regular">
-                    900460040
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Mail size={16} />
-                  <span className="font-montserrat font-regular">
-                    isiperu25@gmail.com
-                  </span>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
+        <MobileMenu
+          navItems={navItems}
+          isOpen={isMenuOpen}
+          onClose={closeMenu}
+          isActivePath={isActivePath}
+        />
       </div>
     </header>
   );

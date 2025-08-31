@@ -18,9 +18,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
+  title:
+    "ISIPERU - Pioneros en asesoría integral de proyectos inmobiliarios en Perú",
   description:
-    "Encuentra las mejores propiedades en la Selva Central, Perú. Casas, departamentos y terrenos en las mejores ubicaciones. ISIPERU, tu socio inmobiliario de confianza.",
+    "En ISIPERU ofrecemos asesoría personalizada y soluciones integrales en proyectos inmobiliarios. Confía en nuestra experiencia para invertir con seguridad en la Selva Central y todo el Perú.",
   keywords:
     "inmobiliaria, propiedades, casas, departamentos, Selva Central, Perú, ISIPERU",
   authors: [{ name: "ISIPERU" }],
@@ -57,7 +58,8 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
+    title:
+      "ISIPERU - Pioneros en asesoría integral de proyectos inmobiliarios en Perú",
     description:
       "Encuentra las mejores propiedades en la Selva Central, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
     url: "https://isiperu.com",
@@ -67,7 +69,7 @@ export const metadata: Metadata = {
         url: "/hero.png",
         width: 1200,
         height: 630,
-        alt: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
+        alt: "ISIPERU - Pioneros en asesoría integral de proyectos inmobiliarios en Perú",
       },
     ],
     locale: "es_PE",
@@ -75,7 +77,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ISIPERU - Inmobiliaria en la Selva Central, Perú",
+    title:
+      "ISIPERU - Pioneros en asesoría integral de proyectos inmobiliarios en Perú",
     description:
       "Encuentra las mejores propiedades en la Selva Central, Perú. Casas, departamentos y terrenos en las mejores ubicaciones.",
     images: ["/hero.png"],

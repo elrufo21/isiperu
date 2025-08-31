@@ -13,38 +13,26 @@ import {
   ArrowRight,
   MapPin,
   Phone,
-  Mail,
   Clock,
   CheckCircle,
-  ChevronRight,
   Award,
   Shield,
   TrendingUp,
   Heart,
   Eye,
   Share2,
-  DollarSign,
-  UserCheck,
   Target,
   Home,
   TreePine,
   Handshake,
   Globe,
   Zap,
-  ChevronLeft,
 } from "lucide-react";
 import AlliesCarousel from "@/components/AlliesCarousel/AlliesCarousel";
 import ProjectModal from "./components/ProjectModal";
+import ServicesSection from "./components/ServicesSection";
 
 export default function ISIPeruHomepage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    service: "",
-    message: "",
-  });
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedProject, setSelectedProject] = useState<{
     id: string;
@@ -57,25 +45,6 @@ export default function ISIPeruHomepage() {
     destacado: boolean;
   } | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = e.target as HTMLInputElement;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Aquí se manejaría el envío del formulario
-    console.log("Formulario enviado:", formData);
-    alert("¡Gracias por tu consulta! Te contactaremos pronto.");
-  };
 
   const handleOpenModal = (proyecto: (typeof proyectosCompletados)[0]) => {
     setSelectedProject(proyecto);
@@ -281,37 +250,6 @@ export default function ISIPeruHomepage() {
     return () => clearInterval(interval);
   }, [totalSlides]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const testimonios = [
-    {
-      nombre: "Carlos Mendoza",
-      cargo: "Empresario, Pangoa",
-      comentario:
-        "ISI Perú nos ayudó a obtener la titulación de nuestro predio de manera rápida y segura. Su experiencia en la Selva Central es incomparable.",
-      calificacion: 5,
-      proyecto: "Saneamiento Legal",
-      tiempo: "3 meses",
-    },
-    {
-      nombre: "María Torres",
-      cargo: "Inversionista Inmobiliaria",
-      comentario:
-        "La consolidación empresarial que recibí me permitió estructurar mejor mi negocio inmobiliario. Ahora tengo una visión más clara de mis objetivos.",
-      calificacion: 5,
-      proyecto: "Asesoría Empresarial",
-      tiempo: "6 meses",
-    },
-    {
-      nombre: "Roberto Vásquez",
-      cargo: "Propietario en Mazamari",
-      comentario:
-        "Adquirí mi lote en Valle Sagrado hace 3 años y ha sido la mejor inversión que he hecho. La ubicación y los servicios son excelentes.",
-      calificacion: 5,
-      proyecto: "Valle Sagrado",
-      tiempo: "3 años",
-    },
-  ];
-
   const ventajas = [
     {
       icono: Users,
@@ -339,49 +277,11 @@ export default function ISIPeruHomepage() {
     },
   ];
 
-  const modalidadesIntegracion = [
-    {
-      titulo: "Afiliado",
-      descripcion:
-        "Forma parte de nuestra red como afiliado y accede a beneficios exclusivos",
-      beneficios: [
-        "Comisiones competitivas",
-        "Capacitación continua",
-        "Soporte técnico",
-      ],
-      icono: UserCheck,
-    },
-    {
-      titulo: "Accionista",
-      descripcion:
-        "Invierte en nuestro crecimiento y participa en las decisiones estratégicas",
-      beneficios: ["Dividendos anuales", "Voz y voto", "Acceso prioritario"],
-      icono: TrendingUp,
-    },
-    {
-      titulo: "Inversionista",
-      descripcion: "Participa en proyectos específicos con retornos atractivos",
-      beneficios: [
-        "ROI competitivo",
-        "Diversificación",
-        "Asesoría especializada",
-      ],
-      icono: DollarSign,
-    },
-  ];
-
   const estadisticasEmpresa = [
     { numero: "6", label: "Proyectos Completados", icon: Building2 },
     { numero: "1000+", label: "Familias Beneficiadas", icon: Heart },
-    { numero: "14", label: "Años de Experiencia", icon: Star },
+    { numero: "15", label: "Años de Experiencia", icon: Star },
     { numero: "24/7", label: "Atención al Cliente", icon: Clock },
-  ];
-
-  const aliados = [
-    { nombre: "Notarías", descripcion: "Red de notarías especializadas" },
-    { nombre: "Municipalidades", descripcion: "Convenios municipales activos" },
-    { nombre: "SUNARP", descripcion: "Gestión registral eficiente" },
-    { nombre: "Empresas", descripcion: "Alianzas estratégicas corporativas" },
   ];
 
   return (
@@ -392,15 +292,15 @@ export default function ISIPeruHomepage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center ]">
             <div className="space-y-8">
               <div className="space-y-6">
-                <h1 className="font-montserrat font-heavy text-5xl md:text-7xl leading-tight text-white">
-                  Integración Social{" "}
+                <h1 className="font-montserrat font-heavy text-3xl md:text-5xl leading-tight text-white">
+                  Tu tranquilidad{" "}
                   <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
-                    Inmobiliaria
+                    legal y tu inversión,
                   </span>{" "}
-                  Perú
+                  en las mejores manos.
                 </h1>
                 <p className="font-montserrat font-regular text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl">
-                  Más de 14 años especializados en habilitaciones urbanas y
+                  Más de 15 años especializados en habilitaciones urbanas y
                   desarrollo inmobiliario en la Selva Central del Perú.
                   Integramos a personas naturales y jurídicas del sector
                   inmobiliario.
@@ -836,7 +736,7 @@ export default function ISIPeruHomepage() {
           {/* Textura esmeralda tenue */}
 
           <div className="text-center mb-16">
-            <h2 className="font-montserrat font-heavy text-4xl md:text-5xl mb-6">
+            <h2 className="font-montserrat text-black font-heavy text-4xl md:text-5xl mb-6">
               Números que Respaldan Nuestra Experiencia
             </h2>
             <p className="font-montserrat font-regular text-xl text-slate-700 max-w-3xl mx-auto">
@@ -871,129 +771,8 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Integration Modalities Section */}
-      <section className="py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]  overflow-hidden ">
-        {/* Textura ligera tipo plano (rejilla) */}
+      <ServicesSection />
 
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-            {/* Left: heading + cards */}
-            <div>
-              <div className="mb-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-emerald-400 mb-4">
-                  Únete a ISI Perú
-                </h2>
-                <p className="text-lg md:text-xl text-white max-w-3xl leading-relaxed">
-                  Ofrecemos diferentes modalidades para que puedas integrarte a
-                  nuestra organización según tus objetivos y capacidades de
-                  inversión.
-                </p>
-              </div>
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-                {modalidadesIntegracion.map((modalidad, index) => (
-                  <div
-                    key={index}
-                    className="group h-full flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 p-5 md:p-6 lg:p-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 md:min-h-[300px] lg:min-h-[340px]"
-                  >
-                    <div className="inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-2xl mb-3 md:mb-4 group-hover:scale-110 transition-transform">
-                      <modalidad.icono className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      {modalidad.titulo}
-                    </h3>
-                    <p className="text-white mb-3 leading-snug text-sm">
-                      {modalidad.descripcion}
-                    </p>
-                    <div className="space-y-1.5 mt-auto">
-                      {modalidad.beneficios.map((beneficio, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center text-[13px] md:text-sm text-white"
-                        >
-                          <CheckCircle className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0" />
-                          {beneficio}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Contact Form */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 rounded-3xl p-8 border border-gray-200 shadow-2xl">
-                <div className="space-y-6">
-                  <div className="mb-4">
-                    <h3 className="text-2xl font-bold text-emerald-400 mb-2">
-                      Contáctanos
-                    </h3>
-                    <p className="text-white">
-                      Inicia tu proyecto inmobiliario hoy
-                    </p>
-                  </div>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Nombre completo"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-                      required
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Correo electrónico"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-                      required
-                    />
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Teléfono"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-                    />
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
-                    >
-                      <option value="">Servicio de interés</option>
-                      <option value="ventas">Ventas y Servicios</option>
-                      <option value="asesoria">Asesoría Legal</option>
-                      <option value="consolidacion">
-                        Consolidación Empresarial
-                      </option>
-                      <option value="marketing">Marketing</option>
-                    </select>
-                    <textarea
-                      name="message"
-                      placeholder="Mensaje"
-                      rows={3}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="w-full p-4 rounded-xl bg-white border border-gray-300 text-slate-800 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none"
-                    ></textarea>
-                    <button
-                      type="submit"
-                      className="w-full p-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg"
-                    >
-                      <Mail className="w-5 h-5 inline mr-2" />
-                      Enviar Consulta
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Aliados Section (tira) */}
 
       {/* Project Modal */}

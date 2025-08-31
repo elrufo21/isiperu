@@ -9,10 +9,30 @@ const nextConfig: NextConfig = {
 
   // Compresión y minificación
   compress: true,
+  reactStrictMode: true,
 
   // Optimizaciones de imágenes
   images: {
     formats: ["image/webp", "image/avif"],
+    domains: [
+      "ilcj.edu.pe",
+      "i.ytimg.com",
+      "blog.lemontech.com",
+      "media.licdn.com",
+      "res.cloudinary.com",
+      "images.unsplash.com",
+      "tirant.com",
+      "www.tirant.com",
+      "i0.wp.com",
+      "www.esic.edu.pe",
+      "www.esic.edu",
+      "cdn-djofm.nitrocdn.com",
+      "ilcj.edu.pe",
+      "www.unir.net",
+      "www.abogadosasociadosperu.com",
+      "escueladerecho.pucp.edu.pe",
+      "posgrado.uwiener.edu.pe",
+    ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 días
