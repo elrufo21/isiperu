@@ -13,7 +13,7 @@ interface TeamPreviewProps {
 
 const TeamPreview = ({ team }: TeamPreviewProps) => {
   if (!team || !Array.isArray(team) || team.length === 0) {
-    return null;
+    return null;  
   }
 
   return (
