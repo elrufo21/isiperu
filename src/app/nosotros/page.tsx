@@ -1,6 +1,6 @@
 "use client";
 import AlliesCarousel from "@/components/AlliesCarousel";
-import { Badge } from "lucide-react";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 export default function NosotrosPage() {
@@ -9,97 +9,64 @@ export default function NosotrosPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative min-h-[500px] sm:min-h-[600px] flex items-center overflow-hidden bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]">
-        {/* Background with optimized loading */}
+      <section className="relative min-h-[600px] flex items-center overflow-hidden bg-gradient-to-r from-[#111] via-[#1c1c1c] to-[#111]">
+        {/* Fondo con imagen + overlay */}
         <div className="absolute inset-0">
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-            style={{
-              backgroundImage: "url(/nosotros.jpeg)",
-              willChange: "transform",
-            }}
-            aria-hidden="true"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 animate-slow-zoom opacity-40"
+            style={{ backgroundImage: "url(/nosotros.jpeg)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1a1a1a]/80 via-[#2d2d2d]/80 to-[#1a1a1a]/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/80" />
         </div>
 
-        <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
-            {/* Content Column */}
-            <div className="lg:col-span-7 text-center lg:text-left">
-              <Badge className="mb-4 sm:mb-6 text-white border-0 px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium">
-                Sobre Nosotros
-              </Badge>
-
-              <h1 className="font-montserrat font-heavy text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 leading-[1.1] text-white">
-                Transformando la
+        {/* Contenido */}
+        <div className="container relative z-10 mx-auto px-6 lg:px-8 max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Texto principal */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="lg:col-span-7 text-center lg:text-left space-y-6"
+            >
+              {/* Título */}
+              <h1 className="font-montserrat font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-snug tracking-tight text-white">
+                Transformando la{" "}
                 <span className="block text-transparent bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text">
                   Selva Central
                 </span>
               </h1>
 
-              <p className="font-montserrat font-regular text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0">
-                Con más de 14 años de experiencia, ISI Perú lidera el desarrollo
-                inmobiliario sostenible, integrando comunidades y transformando
-                territorios.
+              {/* Descripción */}
+              <p className="text-gray-300 text-lg sm:text-xl max-w-2xl leading-relaxed">
+                Con más de{" "}
+                <span className="text-emerald-400 font-semibold">
+                  14 años de experiencia
+                </span>
+                , ISI Perú lidera el desarrollo inmobiliario sostenible,
+                integrando comunidades y transformando territorios.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center lg:items-start">
-                <div className="flex items-center gap-2 text-gray-300">
-                  <div className="h-2 w-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <span className="text-xs sm:text-sm font-medium">
-                    Activos desde 2010
-                  </span>
+              {/* Badges inferiores */}
+              <div className="flex flex-wrap gap-4 mt-6 justify-center lg:justify-start">
+                <div className="flex items-center gap-2 text-gray-300 text-sm font-medium">
+                  <div className="h-2 w-2 bg-emerald-400 rounded-full animate-ping" />
+                  Activos desde 2010
                 </div>
-                <div className="flex items-center gap-2 text-gray-300">
-                  <div className="h-2 w-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <span className="text-xs sm:text-sm font-medium">
-                    6 Proyectos Exitosos
-                  </span>
+                <div className="flex items-center gap-2 text-gray-300 text-sm font-medium">
+                  <div className="h-2 w-2 bg-emerald-400 rounded-full animate-ping" />
+                  6 Proyectos Exitosos
                 </div>
               </div>
-            </div>
 
-            {/* Stats Column */}
-            <div className="lg:col-span-5 mt-6 lg:mt-0">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/20 to-emerald-500/20 rounded-2xl sm:rounded-3xl blur-xl" />
-                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-white/20 shadow-2xl">
-                  <h3 className="text-base sm:text-lg font-semibold text-white mb-4 sm:mb-6 text-center">
-                    Nuestros Números
-                  </h3>
-
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="bg-white/15 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-white/10 hover:bg-white/20 transition-all duration-300">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
-                        14+
-                      </div>
-                      <div className="text-xs sm:text-sm text-gray-300">
-                        Años de Experiencia
-                      </div>
-                    </div>
-                    <div className="bg-white/15 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-white/10 hover:bg-white/20 transition-all duration-300">
-                      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
-                        6
-                      </div>
-                      <div className="text-xs sm:text-sm text-gray-300">
-                        Proyectos Realizados
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-emerald-600/30 to-emerald-500/30 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4 text-center border border-emerald-400/30">
-                    <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-1">
-                      90%
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-300">
-                      del sector es informal
-                    </div>
-                    <div className="text-xs text-gray-400 mt-1">según CCL</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              {/* Botón de contacto */}
+              <a
+                href="#contacto"
+                className="mt-6 inline-block bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition-all duration-300"
+              >
+                Contáctanos
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>

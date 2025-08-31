@@ -2,17 +2,13 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import ImageCarousel from "./components/ImageCarousel";
-import SimpleVerticalCarousel from "./components/SimpleVerticalCarousel";
 import { AnimatedCounter } from "../components/ui/AnimatedCounter";
-import { HeroAnimatedCounter } from "../components/ui/HeroAnimatedCounter";
 import {
   Building2,
   Users,
   Scale,
   Star,
-  ArrowRight,
   MapPin,
-  Phone,
   Clock,
   CheckCircle,
   Award,
@@ -31,6 +27,7 @@ import {
 import AlliesCarousel from "@/components/AlliesCarousel/AlliesCarousel";
 import ProjectModal from "./components/ProjectModal";
 import ServicesSection from "./components/ServicesSection";
+import Link from "next/link";
 
 export default function ISIPeruHomepage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -233,14 +230,6 @@ export default function ISIPeruHomepage() {
     setCurrentSlide(0);
   }, [slidesPerView]);
 
-  const handleNextSlide = () => {
-    setCurrentSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-  };
-
-  const handlePrevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
-  };
-
   // Autoplay effect
   useEffect(() => {
     const interval = setInterval(() => {
@@ -283,110 +272,93 @@ export default function ISIPeruHomepage() {
     { numero: "15", label: "Años de Experiencia", icon: Star },
     { numero: "24/7", label: "Atención al Cliente", icon: Clock },
   ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % frases.length);
+    }, 4000); // cambia cada 4 segundos
+    return () => clearInterval(interval);
+  }, []);
+
+  const frases = [
+    "Tu tranquilidad legal y tu inversión, en las mejores manos.",
+    "Protegemos tus Derechos. Potenciamos tus Inversiones",
+    "Todo lo que Necesitás, en un Solo Lugar: Legal e Inmobiliario",
+    "Tu Defensa, Nuestra Prioridad",
+    "Asesoramiento Legal Claro, Cercano y Confiable",
+    "Resolvemos tus Problemas Legales, Cuidamos tu Paz",
+    "Te Acompañamos en Cada Paso Legal",
+    "Trámites, Contratos y Defensa: Todo con Profesionales",
+    "Soluciones Inmobiliarias con Apoyo Legal Real",
+    "Donde tu tranquilidad legal y tus inversiones inmobiliarias se hacen realidad.",
+    "Asesoría legal e inmobiliaria en un solo lugar. Eficiencia, confianza y resultados.",
+    "Resolvemos lo legal. Gestionamos lo inmobiliario. Te acompañamos siempre",
+    "Defendemos tus derechos con compromiso y transparencia.",
+    "Tu consulta legal, nuestra responsabilidad profesional.",
+    "Soluciones jurídicas claras, rápidas y personalizadas.",
+    "Atención cercana, ética profesional y compromiso real con cada cliente.",
+    "Tu tranquilidad es nuestra prioridad.",
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
-      <section className="relative min-h-[800px] bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] overflow-hidden ">
-        <div className="relative container mx-auto px-4 py-3 lg:py-16">
-          <div className="grid lg:grid-cols-2 gap-16 items-center ]">
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h1 className="font-montserrat font-heavy text-3xl md:text-5xl leading-tight text-white">
-                  Tu tranquilidad{" "}
-                  <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
-                    legal y tu inversión,
-                  </span>{" "}
-                  en las mejores manos.
+      <section className="relative min-h-[80vh] bg-gradient-to-r from-[#0f0f0f] via-[#1f1f1f] to-[#0f0f0f] overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 py-6 lg:py-12">
+          <div className="max-w-4xl mx-auto text-center space-y-10">
+            <div className="relative h-[240px] md:h-[280px] lg:h-[320px] flex items-center justify-center">
+              <div className="w-full max-w-5xl px-4">
+                <h1 className="font-serif font-bold tracking-tight text-3xl md:text-5xl lg:text-6xl leading-tight text-white text-balance transition-all duration-500 ease-in-out">
+                  {frases[currentSlide]}
                 </h1>
-                <p className="font-montserrat font-regular text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl">
-                  Más de 15 años especializados en habilitaciones urbanas y
-                  desarrollo inmobiliario en la Selva Central del Perú.
-                  Integramos a personas naturales y jurídicas del sector
-                  inmobiliario.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button
-                  onClick={() =>
-                    document
-                      ?.getElementById("proyectos")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-emerald-500/25"
-                >
-                  Ver Proyectos
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <a
-                  href="tel:900460040"
-                  className="group inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all duration-300 backdrop-blur-sm hover:border-white"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  Contactar
-                </a>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8">
-                {estadisticas.map((stat, index) => (
-                  <HeroAnimatedCounter
-                    key={index}
-                    end={stat.numero}
-                    label={stat.label}
-                    duration={2000}
-                    delay={index * 150} // Cada contador se anima con un pequeño delay
-                  />
-                ))}
               </div>
             </div>
 
-            {/* Hero Image Carousel */}
-            <div className="relative">
-              <ImageCarousel
-                images={[
-                  {
-                    src: "/hori1.webp",
-                    alt: "Hori1 - Proyecto Residencial",
-                  },
-                  {
-                    src: "/hori2.webp",
-                    alt: "Hori2 - Proyecto Residencial",
-                  },
-                  {
-                    src: "/hori3.webp",
-                    alt: "Hori3 - Proyecto Residencial",
-                  },
-                  {
-                    src: "/SanIsidro.jpg",
-                    alt: "San Isidro - Proyecto Residencial",
-                  },
-                  {
-                    src: "/ecovida.jpg",
-                    alt: "Eco Vida - Desarrollo Sostenible",
-                  },
-                  {
-                    src: "/espDeVida.jpg",
-                    alt: "Espacio de Vida - Comunidad Integrada",
-                  },
-                  {
-                    src: "/VillaFlavia.jpg",
-                    alt: "Villa Flavia - Residencial Exclusivo",
-                  },
-                  { src: "/lamolina.webp", alt: "La Molina - Zona Premium" },
-                  {
-                    src: "/vallesagrado.jpg",
-                    alt: "Valle Sagrado - Naturaleza y Confort",
-                  },
-                ]}
-                interval={5000}
-              />
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+              Especialistas en derecho inmobiliario con más de{" "}
+              <span className="text-emerald-400 font-semibold">15 años </span>{" "}
+              de experiencia. Protegemos tus inversiones y garantizamos tu
+              tranquilidad legal.
+            </p>
+
+            {/* Botones */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href="/nosotros">
+                <button className="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-200 hover:shadow-xl">
+                  Conoce más
+                </button>
+              </Link>
+              <a
+                href={`https://wa.me/?phone=900460040`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border border-white/30 bg-white/10 text-white rounded-xl hover:bg-white hover:text-slate-900 transition-all duration-200 backdrop-blur-md"
+              >
+                Contactar Ahora
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 pt-8 max-w-2xl mx-auto">
+              {estadisticas.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <p className="text-3xl md:text-4xl font-bold text-emerald-400">
+                    {stat.numero}
+                  </p>
+                  <p className="text-sm text-gray-400 uppercase tracking-wide">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
-      {/* Services Section */}
+
       <section className="py-16 bg-white bg-green-diagonal relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
@@ -635,8 +607,39 @@ export default function ISIPeruHomepage() {
               </div>
             </div>
 
-            {/* Contact Information */}
-            <SimpleVerticalCarousel />
+            <div className="hidden lg:block">
+              <div className="rounded-2xl overflow-hidden shadow-xl ring-1 ring-white/10">
+                <ImageCarousel
+                  images={[
+                    { src: "/hori1.webp", alt: "Hori1 - Proyecto Residencial" },
+                    { src: "/hori2.webp", alt: "Hori2 - Proyecto Residencial" },
+                    { src: "/hori3.webp", alt: "Hori3 - Proyecto Residencial" },
+                    {
+                      src: "/SanIsidro.jpg",
+                      alt: "San Isidro - Proyecto Residencial",
+                    },
+                    {
+                      src: "/ecovida.jpg",
+                      alt: "Eco Vida - Desarrollo Sostenible",
+                    },
+                    {
+                      src: "/espDeVida.jpg",
+                      alt: "Espacio de Vida - Comunidad Integrada",
+                    },
+                    {
+                      src: "/VillaFlavia.jpg",
+                      alt: "Villa Flavia - Residencial Exclusivo",
+                    },
+                    { src: "/lamolina.webp", alt: "La Molina - Zona Premium" },
+                    {
+                      src: "/vallesagrado.jpg",
+                      alt: "Valle Sagrado - Naturaleza y Confort",
+                    },
+                  ]}
+                  interval={5000}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
