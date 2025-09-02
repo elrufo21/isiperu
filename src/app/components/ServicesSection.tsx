@@ -79,8 +79,10 @@ const ServicesSection = () => {
   return (
     <section
       id="servicios"
-      className="py-20 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]"
+      className="py-8 relative min-h-[80vh] bg-gradient-to-r from-[#0f0f0f] via-[#1f1f1f] to-[#0f0f0f] overflow-hidden"
     >
+      <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">

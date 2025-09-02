@@ -1,6 +1,3 @@
-
-import { Mail, Phone } from "lucide-react";
-
 interface TeamMember {
   id: number;
   name: string;
@@ -11,26 +8,23 @@ interface TeamMember {
   phone: string;
   specialties: string[];
 }
-
 const teamMembers: TeamMember[] = [
   {
     id: 1,
     name: "Amado Diaz Alcantara",
     position: "Socio Director",
     department: "legal",
-    image: "",
+    image: "Amado-Diaz.webp",
     email: "rmendoza@isilegal.com",
     phone: "+51 999 123 456",
-    specialties: [
-      "Abogado",
-    ],
+    specialties: ["Abogado"],
   },
   {
     id: 2,
     name: "Juan branlee atao Mendoza",
     position: "Socia Senior",
     department: "legal",
-    image: "",
+    image: "Juan-branlee.webp",
     email: "cflores@isilegal.com",
     phone: "+51 999 123 457",
     specialties: ["Abogado"],
@@ -40,167 +34,123 @@ const teamMembers: TeamMember[] = [
     name: "Lisbeth B. Ninavilca Arana",
     position: "Director de Proyectos",
     department: "inmobiliaria",
-    image: "",
+    image: "Lisbeth-B.webp",
     email: "mtorres@isilegal.com",
     phone: "+51 999 123 458",
-    specialties: [
-     
-    ],
+    specialties: [],
   },
   {
     id: 4,
     name: "Laura Antezana Palante",
     position: "Gerente de Ventas",
     department: "inmobiliaria",
-    image: "",
+    image: "Laura.webp",
     email: "avargas@isilegal.com",
     phone: "+51 999 123 459",
-    specialties: [
-    ],
+    specialties: [],
   },
-   {
+  {
     id: 5,
     name: "Marco Antonio Macuri Inga",
     position: "Gerente de Ventas",
     department: "inmobiliaria",
-    image: "",
+    image: "Marco-Antonio.webp",
     email: "avargas@isilegal.com",
     phone: "+51 999 123 459",
-    specialties: [
-        "Abogado"
-    ],
+    specialties: ["Abogado"],
   },
-   {
-    id: 4,
+  {
+    id: 6,
     name: "Jorge Luis Ruiz Ubaldo",
     position: "Gerente de Ventas",
     department: "inmobiliaria",
-    image: "",
+    image: "Jorge-Luis.webp",
     email: "avargas@isilegal.com",
     phone: "+51 999 123 459",
-    specialties: [
-        "Arquitecto"
-    ],
+    specialties: ["Arquitecto"],
   },
-   {
-    id: 4,
+  {
+    id: 7,
     name: "Mario F. Mendoza Aguirre",
     position: "Gerente de Ventas",
     department: "inmobiliaria",
-    image: "",
+    image: "Mario-F.webp",
     email: "avargas@isilegal.com",
     phone: "+51 999 123 459",
-    specialties: [
-        "Abogado"
-    ],
+    specialties: ["Abogado"],
   },
-   {
-    id: 4,
+  {
+    id: 8,
     name: "Jose Samuel Saavedra Pacotaipe",
     position: "Gerente de Ventas",
     department: "inmobiliaria",
-    image: "",
+    image: "Jose-Samuel.webp",
     email: "avargas@isilegal.com",
     phone: "+51 999 123 459",
-    specialties: [
-    ],
+    specialties: [],
   },
-   {
-    id: 4,
-    name: "Marcia Andrid huamani hinostroza",
+  {
+    id: 9,
+    name: "Marcia Andrid Huamani Hinostroza",
     position: "Gerente de Ventas",
     department: "inmobiliaria",
-    image: "",
+    image: "Marcia-.webp",
     email: "avargas@isilegal.com",
     phone: "+51 999 123 459",
-    specialties: [
-    ],
-  },
-   {
-    id: 4,
-    name: "Laura Antezana Palante",
-    position: "Gerente de Ventas",
-    department: "inmobiliaria",
-    image: "",
-    email: "avargas@isilegal.com",
-    phone: "+51 999 123 459",
-    specialties: [
-    ],
+    specialties: [],
   },
 ];
 
 const TeamSection = () => {
   const TeamCard = ({ member }: { member: TeamMember }) => (
-    <div className="group relative bg-white rounded-xl shadow-card hover:shadow-elegant transition-slow overflow-hidden">
-      <div className="aspect-square overflow-hidden">
+    <div className="group relative bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-emerald-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/20">
+      <div className="relative aspect-square overflow-hidden">
         <img
-          src={member.image}
+          src={`/equipo/${member.image}`}
           alt={member.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-slow"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
       </div>
 
       <div className="p-6">
-        <h3 className="font-serif text-xl font-semibold text-navy mb-2">
-          {member.name}
-        </h3>
-        <p className="text-gold font-medium mb-3">{member.position}</p>
+        <h3 className="font-bold text-xl text-white mb-1">{member.name}</h3>
+        <p className="text-emerald-400 font-medium mb-4">{member.position}</p>
 
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center text-sm text-muted-foreground">
-            <Mail className="w-4 h-4 mr-2" />
-            <a
-              href={`mailto:${member.email}`}
-              className="hover:text-navy transition-smooth"
-            >
-              {member.email}
-            </a>
-          </div>
-          <div className="flex items-center text-sm text-muted-foreground">
-            <Phone className="w-4 h-4 mr-2" />
-            <a
-              href={`tel:${member.phone}`}
-              className="hover:text-navy transition-smooth"
-            >
-              {member.phone}
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-sm font-semibold text-navy mb-2">
-            Especialidades:
-          </h4>
-          <div className="flex flex-wrap gap-1">
+        {member.specialties.length > 0 && (
+          <div className="flex flex-wrap gap-2">
             {member.specialties.map((specialty, index) => (
               <span
                 key={index}
-                className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded-full"
+                className="text-xs px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-lg font-medium border border-emerald-500/30"
               >
                 {specialty}
               </span>
             ))}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
 
   return (
-    <section className="py-20 bg-gray-light">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="relative py-20 bg-gradient-to-r from-[#0f0f0f] via-[#1f1f1f] to-[#0f0f0f]">
+      {/* Fondo patrón */}
+      <div className="absolute inset-0 w-full h-full bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] bg-repeat bg-[120px] opacity-5 pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 relative">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-navy mb-4">
+          <h2 className="font-serif text-4xl text-emerald-600 md:text-5xl font-bold mb-4">
             Nuestro Equipo
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Profesionales altamente calificados comprometidos con la excelencia
-            y el éxito de nuestros clientes
+          <p className="text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed">
+            Un grupo de profesionales altamente calificados, comprometidos con
+            la excelencia y el éxito de nuestros clientes.
           </p>
         </div>
 
-        {/* All Team Members */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 relative">
           {teamMembers.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}

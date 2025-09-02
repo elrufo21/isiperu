@@ -72,8 +72,9 @@ export default function NosotrosPage() {
       </section>
 
       {/* Company Overview */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-white bg-green-diagonal-alt text-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-emerald-100/50" />
+      <section className="py-8 sm:py-12 lg:py-16 bg-white  text-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
             {/* Cards Carousel */}
@@ -198,6 +199,7 @@ export default function NosotrosPage() {
 
       {/* History Section */}
       <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <div className="space-y-6 sm:space-y-8">
@@ -381,7 +383,8 @@ export default function NosotrosPage() {
       </section>
 
       {/* Services & Advantages */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-gray-50 bg-green-diagonal-alt">
+      <section className="py-8 sm:py-12 lg:py-16 bg-white  text-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
@@ -570,7 +573,8 @@ export default function NosotrosPage() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]">
+      <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-emerald-400 mb-3 sm:mb-4">

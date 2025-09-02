@@ -17,7 +17,9 @@ const ProcessSteps = ({ steps }: ProcessStepsProps) => {
   }
 
   return (
-    <section className="py-16">
+    <section className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
           Proceso de trabajo
@@ -39,11 +41,6 @@ const ProcessSteps = ({ steps }: ProcessStepsProps) => {
                   {step.description}
                 </p>
               </div>
-
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-green-200 transform -translate-y-1/2 z-0" />
-              )}
             </div>
           ))}
         </div>

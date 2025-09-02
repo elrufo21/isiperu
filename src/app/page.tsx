@@ -359,7 +359,9 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white bg-green-diagonal relative overflow-hidden">
+      <section className="py-16 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <h2 className="font-montserrat font-heavy text-4xl md:text-5xl text-slate-800 mb-6">
@@ -414,7 +416,8 @@ export default function ISIPeruHomepage() {
         className="py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] text-white relative overflow-hidden"
       >
         {/* Background overlay for better readability */}
-        <div className="absolute inset-0 "></div>
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
         {/* Textura esmeralda tenue */}
 
         <div className="relative z-10 container mx-auto px-4">
@@ -575,8 +578,9 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Advantages Section */}
-      <section className="py-16 bg-white bg-green-diagonal text-slate-900 relative overflow-hidden">
+      <section className="py-16 bg-white text-slate-900 relative overflow-hidden">
         {/* Background overlay */}
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
 
         <div className="relative z-10 container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -645,9 +649,10 @@ export default function ISIPeruHomepage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] text-white relative overflow-hidden">
         {/* Textura ligera tipo plano (rejilla) */}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.07]" />
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-stretch">
             <div className="h-full flex flex-col">
@@ -734,7 +739,9 @@ export default function ISIPeruHomepage() {
         </div>
       </section>
       {/* Stats Section */}
-      <section className="py-16  bg-white bg-green-diagonal-alt relative overflow-hidden">
+      <section className="py-16  bg-white  relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
           {/* Textura esmeralda tenue */}
 

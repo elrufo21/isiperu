@@ -23,7 +23,9 @@ const FAQSection = ({ faqs }: FAQSectionProps) => {
   };
 
   return (
-    <section className="py-20 ">
+    <section className="py-20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
       <div className="max-w-4xl mx-auto px-4">
         {/* Título */}
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">

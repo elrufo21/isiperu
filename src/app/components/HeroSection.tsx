@@ -59,6 +59,7 @@ const HeroSection = ({
     >
       {/* Overlay */}
       {overlay && <div className="absolute inset-0 bg-black/50 z-10" />}
+      <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
 
       <div className="relative z-20 container mx-auto px-4 py-12 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

@@ -65,7 +65,9 @@ export default function ContactoForm() {
     alert("¡Gracias por tu consulta! Te contactaremos pronto.");
   };
   return (
-    <section className="py-16   overflow-hidden ">
+    <section className="py-16 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           <div>

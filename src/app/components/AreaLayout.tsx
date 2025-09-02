@@ -51,7 +51,7 @@ const AreaLayout = ({
     window.open(`tel:${phoneNumber}`, "_blank");
   };
   return (
-    <div className="bg-green-diagonal min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* Hero Section */}
       <HeroSection
         title={title}
@@ -76,6 +76,8 @@ const AreaLayout = ({
       />
 
       <section className="py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
         <div className="container mx-auto px-4">
           <ol className="grid md:grid-cols-2 gap-x-12 gap-y-8">
             {services.map((service, index) => (
@@ -103,6 +105,8 @@ const AreaLayout = ({
 
       {children}
       <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
+
         <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-teal/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-white/5 rounded-full blur-3xl"></div>
 
