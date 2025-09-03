@@ -238,7 +238,7 @@ export default function NosotrosPage() {
                         2010
                       </span>
                       <span className="text-gray-300 ml-2 text-sm sm:text-base">
-                        Fundación de ISI Perú
+                        Fundación de Prodevidas
                       </span>
                     </div>
                   </div>
@@ -272,6 +272,17 @@ export default function NosotrosPage() {
                       </span>
                       <span className="text-gray-300 ml-2 text-sm sm:text-base">
                         Proyecto Ecovida en desarrollo
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-emerald-300 font-semibold text-sm sm:text-base">
+                        2025
+                      </span>
+                      <span className="text-gray-300 ml-2 text-sm sm:text-base">
+                        Fundacion de ISIPERÚ
                       </span>
                     </div>
                   </div>

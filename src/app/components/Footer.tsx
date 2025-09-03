@@ -1,15 +1,54 @@
 import Link from "next/link";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Phone, Mail, MapPin, Facebook } from "lucide-react";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
+  const areasColumns = [
+    {
+      items: [
+        {
+          href: "/servicios/derecho-administrativo",
+          label: "Derecho Administrativo",
+        },
+        {
+          href: "/servicios/derecho-corporativo",
+          label: "Derecho Corporativo",
+        },
+        { href: "/servicios/derecho-civil", label: "Derecho Civil" },
+      ],
+    },
+    {
+      items: [
+        { href: "/servicios/derecho-penal", label: "Derecho Penal" },
+        { href: "/servicios/derecho-laboral", label: "Derecho Laboral" },
+        {
+          href: "/servicios/saneamiento-predios-titulacion",
+          label: "Saneamiento de Predios",
+        },
+      ],
+    },
+    {
+      items: [
+        { href: "/servicios/derecho-de-familia", label: "Derecho de Familia" },
+        {
+          href: "/servicios/derecho-inmobiliario",
+          label: "Derecho Inmobiliario",
+        },
+        {
+          href: "/servicios/proyectos-infraestructura",
+          label: "Proyectos e Infraestructura",
+        },
+      ],
+    },
+    {
+      items: [
+        {
+          href: "/servicios/investigacion-y-pericia",
+          label: "Investigación y Pericia",
+        },
+      ],
+    },
+  ];
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
@@ -43,32 +82,22 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61576922543152"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-lg hover:bg-[#20B266] transition-colors duration-200"
                 aria-label="Facebook"
               >
                 <Facebook size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com/@isi.peru?lang=es"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-lg hover:bg-[#20B266] transition-colors duration-200"
-                aria-label="Instagram"
+                aria-label="TikTok"
               >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-800 p-2 rounded-lg hover:bg-[#20B266] transition-colors duration-200"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="#"
-                className="bg-gray-800 p-2 rounded-lg hover:bg-[#20B266] transition-colors duration-200"
-                aria-label="YouTube"
-              >
-                <Youtube size={18} />
+                <FaTiktok size={18} />
               </a>
             </div>
           </div>
@@ -123,32 +152,21 @@ const Footer = () => {
             <h4 className="font-montserrat font-heavy text-lg text-white">
               Áreas de Trabajo
             </h4>
-            <nav className="flex flex-col space-y-2">
-              <Link
-                href="#areas/ventas"
-                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Ventas y Servicios
-              </Link>
-              <Link
-                href="#areas/consolidacion"
-                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Consolidación Empresarial
-              </Link>
-              <Link
-                href="#areas/marketing"
-                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Marketing
-              </Link>
-              <Link
-                href="#areas/asesoria-legal"
-                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Asesoría Legal y Saneamiento de Predios
-              </Link>
-            </nav>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {areasColumns.map((col, colIndex) => (
+                <nav key={colIndex} className="flex flex-col space-y-2">
+                  {col.items.map((item, idx) => (
+                    <Link
+                      key={idx}
+                      href={item.href}
+                      className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+              ))}
+            </div>
           </div>
 
           {/* Contact Info */}

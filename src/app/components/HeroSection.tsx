@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ImageCarousel from "./ImageCarousel";
 import { HeroAnimatedCounter } from "@/components/ui/HeroAnimatedCounter";
+import ContactModal from "./ContactModal";
 
 interface Stat {
   numero: number;
@@ -42,7 +43,6 @@ const HeroSection = ({
   subtitle,
   description,
   buttons = [],
-  stats = [],
   images = [],
   carouselInterval = 5000,
   className = "",
@@ -55,7 +55,7 @@ const HeroSection = ({
 
   return (
     <section
-      className={`relative min-h-[800px] overflow-hidden ${background} ${className}`}
+      className={`relative min-h-[500px] overflow-hidden ${background} ${className}`}
     >
       {/* Overlay */}
       {overlay && <div className="absolute inset-0 bg-black/50 z-10" />}
@@ -98,7 +98,11 @@ const HeroSection = ({
                   btn.type === "button" ? (
                     <button
                       key={idx}
-                      onClick={btn.onClick}
+                      onClick={
+                        btn.text === "Agenda tu consulta"
+                          ? () => setIsModalOpen(true) // 👈 abre el modal
+                          : btn.onClick
+                      }
                       className={`flex items-center justify-center px-6 py-3 md:px-8 md:py-4 font-semibold rounded-xl transition-transform duration-300 transform hover:scale-105 shadow-lg ${
                         btn.variant === "primary"
                           ? "bg-gradient-to-r from-emerald-600 to-emerald-500 text-white hover:from-emerald-700 hover:to-emerald-600"
@@ -129,27 +133,12 @@ const HeroSection = ({
                 )}
               </div>
             )}
-
-            {/* Stats */}
-            {stats.length > 0 && (
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mt-8">
-                {stats.map((stat, idx) => (
-                  <HeroAnimatedCounter
-                    key={idx}
-                    end={stat.numero}
-                    label={stat.label}
-                    duration={2000}
-                    delay={idx * 150}
-                  />
-                ))}
-              </div>
-            )}
           </div>
 
           {/* Carrusel */}
           {images.length > 0 && (
             <div
-              className={`relative w-full h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl ${
+              className={`relative w-full hidden sm:block h-80 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl ${
                 reverse ? "lg:order-1" : "lg:order-2"
               }`}
             >
@@ -158,6 +147,9 @@ const HeroSection = ({
           )}
         </div>
       </div>
+
+      {/* Modal de contacto */}
+      {isModalOpen && <ContactModal onClose={() => setIsModalOpen(false)} />}
     </section>
   );
 };

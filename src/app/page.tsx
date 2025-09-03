@@ -309,7 +309,7 @@ export default function ISIPeruHomepage() {
         <div className="absolute inset-0 bg-[url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/elegant-legal-pattern-with-scales-of-justice-OVrDzq3nKkOncpQyU9RoMhnEqp10Hx.png')] opacity-5 pointer-events-none"></div>
 
         <div className="container mx-auto px-4 py-6 lg:py-12">
-          <div className="max-w-4xl mx-auto text-center space-y-10">
+          <div className="max-w-4xl mx-auto text-center space-y-5">
             <div className="relative h-[240px] md:h-[280px] lg:h-[320px] flex items-center justify-center">
               <div className="w-full max-w-5xl px-4">
                 <h1 className="font-serif font-bold tracking-tight text-3xl md:text-5xl lg:text-6xl leading-tight text-white text-balance transition-all duration-500 ease-in-out">
@@ -319,10 +319,16 @@ export default function ISIPeruHomepage() {
             </div>
 
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
-              Especialistas en derecho inmobiliario con más de{" "}
-              <span className="text-emerald-400 font-semibold">15 años </span>{" "}
-              de experiencia. Protegemos tus inversiones y garantizamos tu
-              tranquilidad legal.
+              <span className="font-semibold text-emerald-400">Prodevidas</span>
+              , fundada en{" "}
+              <span className="font-emerald-400 font-semibold">2010</span>,
+              marcó el inicio de nuestra trayectoria.
+              <br />
+              En <span className="font-semibold text-emerald-400">2025</span>,
+              nace{" "}
+              <span className="font-semibold text-emerald-400">ISI Perú</span>,
+              consolidando nuestra visión de excelencia en el sector
+              inmobiliario.
             </p>
 
             {/* Botones */}

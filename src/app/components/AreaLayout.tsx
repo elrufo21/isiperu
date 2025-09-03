@@ -2,8 +2,9 @@
 import { ReactNode } from "react";
 import HeroSection from "./HeroSection";
 import ProcessSteps from "./ProcessSteps";
-import { Calendar, Check, MessageCircle, Phone } from "lucide-react";
+import { Check, MessageCircle, Phone } from "lucide-react";
 import FAQSection from "./FAQSection";
+import { Toaster } from "react-hot-toast";
 
 interface AreaLayoutProps {
   title: string;
@@ -52,6 +53,15 @@ const AreaLayout = ({
   };
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#20B266",
+            color: "#fff",
+          },
+        }}
+      />
       {/* Hero Section */}
       <HeroSection
         title={title}
@@ -67,7 +77,7 @@ const AreaLayout = ({
           {
             type: "link",
             text: "Contáctanos",
-            href: "tel:+51900460040",
+            href: `https://wa.me/+51900460040?text=Hola, estoy interesado en sus servicios de ${title}.`,
             variant: "secondary",
           },
         ]}
@@ -89,9 +99,6 @@ const AreaLayout = ({
                   <h3 className="text-lg font-semibold text-gray-900">
                     {service}
                   </h3>
-                  <p className="text-gray-600 text-sm">
-                    Descripción breve del servicio para dar más contexto.
-                  </p>
                 </div>
               </li>
             ))}
