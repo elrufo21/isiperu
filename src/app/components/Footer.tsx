@@ -114,26 +114,9 @@ const Footer = () => {
               >
                 Inicio
               </Link>
+
               <Link
-                href="/propiedades"
-                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Propiedades
-              </Link>
-              <Link
-                href="/propiedades?tipo=venta"
-                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Propiedades en Venta
-              </Link>
-              <Link
-                href="/propiedades?tipo=alquiler"
-                className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
-              >
-                Propiedades en Alquiler
-              </Link>
-              <Link
-                href="/servicios"
+                href="/#servicios"
                 className="font-montserrat font-regular text-gray-400 hover:text-[#20B266] transition-colors duration-200 text-sm"
               >
                 Servicios
