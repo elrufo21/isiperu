@@ -61,7 +61,9 @@ export default function NosotrosPage() {
 
               {/* Botón de contacto */}
               <a
-                href="#contacto"
+                href="https://wa.me/+51900460040?text=Hola,%20quiero%20más%20información%20sobre%20ISI%20Perú"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 inline-block bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition-all duration-300"
               >
                 Contáctanos

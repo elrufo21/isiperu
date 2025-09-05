@@ -339,7 +339,7 @@ export default function ISIPeruHomepage() {
                 </button>
               </Link>
               <a
-                href={`https://wa.me/?phone=900460040`}
+                href={`https://wa.me/+51900460040?text=Hola,%20quiero%20más%20información%20sobre%20ISI%20Perú`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 border border-white/30 bg-white/10 text-white rounded-xl hover:bg-white hover:text-slate-900 transition-all duration-200 backdrop-blur-md"

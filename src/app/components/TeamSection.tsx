@@ -99,6 +99,16 @@ const teamMembers: TeamMember[] = [
     phone: "+51 999 123 459",
     specialties: [],
   },
+  {
+    id: 10,
+    name: "Oscar Armando Vertiz Carmona",
+    position: "Gerente de Ventas",
+    department: "inmobiliaria",
+    image: "Oscar-Armando.webp",
+    email: "avargas@isilegal.com",
+    phone: "+51 999 123 459",
+    specialties: ["Especialista en peritajes criminalisticos"],
+  },
 ];
 
 const TeamSection = () => {
