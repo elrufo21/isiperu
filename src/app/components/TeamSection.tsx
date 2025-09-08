@@ -21,7 +21,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 2,
-    name: "Juan branlee atao Mendoza",
+    name: "Juan Branlee Atao Mendoza",
     position: "Socia Senior",
     department: "legal",
     image: "Juan-branlee.webp",
